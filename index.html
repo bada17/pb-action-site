@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>참여예산 상담소 — 함께하는 시민행동</title>
+<title>시민참여 상담소 — 함께하는 시민행동</title>
 <meta name="description" content="참여예산도, 주민자치회도, 뭘 물어야 할지 모르겠는 것도. 함께하는 시민행동 시민참여정책위원회 전문위원이 답합니다.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="함께하는 시민행동">
@@ -11,6 +11,12 @@
 <meta property="og:url" content="https://pb.action.or.kr/">
 <meta property="og:title" content="시민참여, 물어보세요!">
 <meta property="og:description" content="참여예산도, 주민자치회도, 뭘 물어야 할지 모르겠는 것도. 함께하는 시민행동 시민참여정책위원회 전문위원이 답합니다.">
+
+<!-- 파비콘. 단체 심벌을 브랜드색으로 칠한 것입니다 — 개편 저장소 index.html 의
+     머리 띠가 쓰는 마스크(--sym)와 같은 그림입니다. img/ 는 index.html 과 함께
+     pb-action-site 로 복사되므로 상대 주소로 둡니다. -->
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
 
 <!-- ⚠️ 이 파일은 build.py 가 ../action-home-renewal/pb.html 로 굽습니다.
      여기서 고치면 다음에 구울 때 사라집니다. 화면은 pb.html 에서 고치세요. -->
@@ -31,12 +37,38 @@ body { margin: 0; background: #fff; }
    그 스크립트가 없습니다). 그래서 여기서만 되돌립니다.
    pb.html 의 <style> 이 이 규칙보다 뒤에 오므로 !important 가 필요합니다. */
 #pb, #pb-foot { margin-left: 0 !important; margin-right: 0 !important; }
+
+/* ── 맨 위 로고 띠 (2026-09-04) ──
+   **독립 문서에서만** 놓습니다. 캠페이너스 안에서는 홈페이지 상단이 같은 로고를
+   이미 보여 주므로, pb.html 이 아니라 여기(껍데기)에 두어야 두 번 나오지 않습니다.
+   왼쪽 끝은 본문 칸과 맞춥니다 — 아래 폭 계산은 pb.html 의 `#pb .wrap` 과 같습니다
+   (기본 100%-44px, 820px 아래에서 100%-36px). 한쪽만 고치면 로고만 어긋납니다.
+   ⚠️ 링크를 걸지 않았습니다. 독립 페이지라 되돌아가는 길을 두지 않는다는
+      규칙(빵부스러기 없음)과 같은 뜻입니다. */
+/* 2026-09-07 — 흰 띠를 걷고 히어로와 같은 색으로 이었습니다(사용자 지시).
+   흰 바탕 + 밑줄이 로고만 따로 떠 있는 칸처럼 보였습니다.
+   ⚠️ #e2f5fd 는 pb.html 의 `--tint` 이고, 히어로 그러데이션의 0% 자리입니다.
+      껍데기라 #pb 밖이어서 var() 를 못 씁니다 — pb.html 에서 --tint 를 바꾸면
+      여기도 같이 바꿔야 두 색이 다시 갈라지지 않습니다. */
+.pb-top { background: #e2f5fd; }
+.pb-top-in { width: min(1120px, calc(100% - 44px)); margin: 0 auto; padding: 14px 0; }
+.pb-logo { display: block; width: 145px; height: auto; }
+@media (max-width: 820px) {
+  .pb-top-in { width: min(100% - 36px, 1120px); padding: 11px 0; }
+  .pb-logo { width: 122px; }
+}
 </style>
 </head>
 <body>
+<header class="pb-top">
+  <div class="pb-top-in">
+    <img class="pb-logo" src="https://cdn.imweb.me/upload/S20210826b814397ca4e6d/2a859fe4ace59.png"
+         alt="함께하는 시민행동" width="145" height="42" decoding="async">
+  </div>
+</header>
 <style>
 /* ═══════════════════════════════════════════════════════════════
-   참여예산 상담소  (#pb)
+   시민참여 상담소  (#pb)
 
    무엇을 하는 곳인가 (2026-08-27 사용자):
      "시민, 기관, 참여위원 등이 궁금한 걸 질문하고 답을 할 수 있는 것.
@@ -45,7 +77,7 @@ body { margin: 0; background: #fff; }
    그래서 질문·답 말고 넷을 더 넣었습니다. 각 칸 앞 주석에 이유를 적었습니다.
      1. 세 갈래 입구       — 묻는 사람이 셋인데 궁금한 게 전혀 다릅니다
      2. 나도 궁금해요      — 읽기만 하던 사람이 한 번은 누르게 됩니다
-     3. 참여예산 말 뜻     — 못 묻는 이유 1위가 "용어를 몰라서"입니다
+     3. 시민참여 개념 정의 — 못 묻는 이유 1위가 "용어를 몰라서"입니다
      4. 답을 기다리는 질문 — 살아 있는 창구라는 증거입니다
 
    ⚠️ 이 화면은 캠페이너스 코드 위젯입니다. 모든 규칙을 #pb 안에 가둡니다.
@@ -57,12 +89,12 @@ body { margin: 0; background: #fff; }
 
 #pb{
   --brand:#00afec; --deep:#0079a6; --tint:#e2f5fd; --band:#eef7fb;
-  --navy:#062330; --ink:#0b1e28; --soft:#4a6473; --faint:#7d95a3;
-  --line:#d5e4eb; --paper:#f1f6f8;
+  --navy:#062330; --ink:#0b1e28; --soft:#3d5663; --faint:#657b87;
+  --line:#cfdee5; --paper:#f4f8fa;
   --flag:#9a5c06; --flag-bg:#fff4e1; --flag-line:#ecd3a2;
 
   margin-left:calc(50% - 50vw + var(--ah-sb, 0px) / 2);margin-right:calc(50% - 50vw + var(--ah-sb, 0px) / 2);
-  background:#fff; color:var(--ink);
+  background:#fff; color:var(--ink); overflow-x:clip;
   font-family:'Pretendard Variable',Pretendard,'Noto Sans KR',-apple-system,sans-serif;
   font-size:16px; line-height:1.7; word-break:keep-all; -webkit-font-smoothing:antialiased;
 }
@@ -149,10 +181,24 @@ body { margin: 0; background: #fff; }
   border:1px solid var(--line); border-radius:999px; padding:1px 7px; margin-left:3px}
 #pb .ask .opt i.must,#pb .form .opt i.must{color:var(--deep); border-color:var(--brand); background:var(--tint)}
 #pb .ask .fine,#pb .form .fine{margin-top:10px; font-size:12.5px; color:var(--faint); line-height:1.6}
-/* 개인정보 고지 — 읽어야 하는 것이라 지우지 말고, 대신 한 칸 물러나 있게 둡니다. */
-#pb .ask .legal,#pb .form .legal{margin-top:10px; padding-top:10px; border-top:1px solid var(--line); font-size:12px}
+/* 개인정보 고지 — 읽어야 하는 것이라 지우지 말고, 대신 한 칸 물러나 있게 둡니다.
+   2026-09-04 — 여섯 줄짜리 잔글씨가 동의 체크박스보다 길어서 접었습니다(<details>).
+   ⚠️ 접힌 채로도 보여야 하는 것이 있습니다 — 수집 항목 · 이용 목적 · 보유기간 ·
+      동의를 안 해도 된다는 말. 그래서 그 넷은 <summary> 안에 두었습니다.
+      접히는 것은 보관처 · 처리 주체 · 책임자 · 방침 링크뿐입니다.
+      요약 줄에서 항목·목적·기간을 빼지 마세요. */
+#pb .ask .legal,#pb .form .legal{margin-top:10px; padding-top:10px; border-top:1px solid var(--line); font-size:12px; color:var(--faint); line-height:1.6}
 #pb .ask .legal b,#pb .form .legal b{color:var(--soft)}
 #pb .ask .legal a,#pb .form .legal a{color:var(--deep); font-weight:700; text-decoration:underline; text-underline-offset:2px}
+#pb .ask .legal>summary,#pb .form .legal>summary{cursor:pointer; list-style:none; padding-right:2px}
+#pb .ask .legal>summary::-webkit-details-marker,#pb .form .legal>summary::-webkit-details-marker{display:none}
+/* '자세히' 딱지. 열리면 '접기'로 바뀝니다(글자는 ::after 로 넣습니다). */
+#pb .ask .legal>summary .more,#pb .form .legal>summary .more{
+  color:var(--deep); font-weight:700; white-space:nowrap; margin-left:4px}
+#pb .ask .legal>summary .more::after,#pb .form .legal>summary .more::after{content:"자세히 ▾"}
+#pb .ask .legal[open]>summary .more::after,#pb .form .legal[open]>summary .more::after{content:"접기 ▴"}
+#pb .ask .legal>summary:hover .more,#pb .form .legal>summary:hover .more{text-decoration:underline}
+#pb .ask .legal .legal-rest,#pb .form .legal .legal-rest{margin-top:7px}
 #pb .ask .msg,#pb .form .msg{margin-top:10px; font-size:14px; font-weight:700; color:var(--deep); display:none}
 #pb .ask .msg.on,#pb .form .msg.on{display:block}
 
@@ -168,7 +214,27 @@ body { margin: 0; background: #fff; }
 /* 2026-09-03 에 이 줄의 버튼 둘(전체 · 궁금해요 많은 순)이 다 빠져서
    지금은 문답 개수만 남았습니다. 버튼 규칙도 같이 지웠습니다. */
 #pb .qtools{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:14px}
-#pb .qtools .count{font-size:13px; color:var(--faint); margin-right:auto}
+/* 세는 글씨는 오른쪽 끝으로 밀고, 거르는 버튼이 왼쪽을 씁니다(2026-09-04). */
+#pb .qtools .count{font-size:13px; color:var(--faint); margin-left:auto}
+#pb .qfilter{display:flex; flex-wrap:wrap; gap:7px}
+#pb .qfilter button{
+  padding:8px 15px; border:1px solid var(--line); border-radius:999px;
+  background:#fff; color:var(--soft); cursor:pointer;
+  font:700 13px/1 Pretendard,sans-serif;
+  transition:background .18s, border-color .18s, color .18s, transform .18s
+}
+#pb .qfilter button:hover{border-color:var(--brand); color:var(--deep); transform:translateY(-1px)}
+#pb .qfilter button[aria-pressed="true"]{background:var(--deep); border-color:var(--deep); color:#fff}
+/* 문답에 붙는 주제 딱지. 묻는 사람 딱지(시민·참여예산위원)는 2026-09-04 에 걷었습니다. */
+#pb .qtag{
+  flex:none; padding:3px 9px; border-radius:999px; font-size:11.5px; font-weight:700;
+  border:1px solid rgba(0,121,166,.3); background:var(--tint); color:var(--deep)
+}
+#pb .qempty{
+  margin:18px 0 0; padding:22px 20px; text-align:center; line-height:1.7;
+  border:1px dashed var(--line); border-radius:10px;
+  background:var(--paper); font-size:13.5px; color:var(--faint)
+}
 
 #pb .qa{border-top:2px solid var(--ink)}
 #pb .qa .item{border-bottom:1px solid var(--line)}
@@ -187,10 +253,6 @@ body { margin: 0; background: #fff; }
 #pb .mark.a{background:var(--brand); color:#fff}
 #pb .qa summary .tail{margin-left:auto; display:flex; align-items:center; gap:7px; flex:none}
 /* 갈래 표시 — 이 질문이 누구 것인지 */
-#pb .whotag{
-  border-radius:999px; padding:2px 9px; font-size:11.5px; font-weight:700;
-  background:var(--band); color:var(--soft); white-space:nowrap
-}
 #pb .qa .ans{display:flex; gap:11px; padding:0 2px 20px}
 #pb .qa .ans .body{font-size:15px; line-height:1.8; color:var(--ink)}
 /* 답변 서명(.sign)은 2026-09-03 에 뗐습니다 — 아래 '오간 질문' 주석 참고.
@@ -205,7 +267,7 @@ body { margin: 0; background: #fff; }
 
 /* '답을 기다리는 질문'(.waiting) 규칙은 2026-09-03 에 지웠습니다 — 칸 자체를 뺐습니다. */
 
-/* ═════ 더한 것 3 — 참여예산 말 뜻 ═════
+/* ═════ 더한 것 3 — 시민참여 개념 정의 ═════
    시민이 못 묻는 가장 큰 이유가 "용어를 몰라서"입니다.
    '제안사업'·'숙의'·'운영조례'가 뭔지 모르면 질문 자체를 못 만듭니다.
    카드를 누르면 뒤집힙니다 — 훑고 지나가도 남는 게 있게. */
@@ -226,13 +288,10 @@ body { margin: 0; background: #fff; }
 #pb .word span{font-size:12.5px; line-height:1.6; word-break:keep-all}
 /* 뒤집기 전 — 뜻은 숨어 있습니다 */
 #pb .word span{display:none}
-#pb .word b::after{content:"?"; margin-left:4px; color:var(--brand); font-weight:800}
 /* 뒤집은 뒤 */
 #pb .word[aria-pressed="true"]{background:var(--navy); border-color:var(--navy); color:#dbeef8}
 #pb .word[aria-pressed="true"] b{font-size:12px; color:#7fb7ce; font-weight:700}
-#pb .word[aria-pressed="true"] b::after{content:""}
 #pb .word[aria-pressed="true"] span{display:block}
-#pb .words-fine{margin-top:13px; font-size:12.5px; color:var(--faint); line-height:1.6}
 
 /* ───── 답하는 사람 ───── */
 /* ───── 시민참여정책위원회 ─────
@@ -240,34 +299,279 @@ body { margin: 0; background: #fff; }
    "이 사람들이 답한다"가 와닿지 않았습니다. 사진 · 분야 · 이력 셋을 놓습니다.
    2026-09-03 다시 — 사진을 상반신이 나올 만큼 키웠습니다("지금 칸은 너무 작다").
    68px 짜리 동그란 얼굴로는 상반신이 안 담깁니다. 세로 4:5 사진을 왼쪽에 크게 두고
-   오른쪽에 이름·분야·이력을 폅니다. 그래서 카드가 한 줄에 하나씩입니다 —
-   2열로 두면 사진을 키운 만큼 이력 쪽이 좁아져 한 줄이 서너 줄로 접힙니다. */
-#pb .people{display:grid; grid-template-columns:1fr; gap:18px}
-#pb .person{
-  display:grid; grid-template-columns:clamp(200px,24vw,290px) 1fr; gap:clamp(22px,3vw,42px);
-  align-items:start; background:#fff;
-  border:1px solid var(--line); border-radius:18px; padding:clamp(20px,2.4vw,30px)
+   오른쪽에 이름·분야·이력을 폅니다.
+
+   ★ 2026-09-03 저녁 — 넷을 세로로 쌓던 것을 **옆으로 넘기는 카루셀**로 바꿨습니다
+     (사용자: "사진 저거 너무 안 이뻐. 애니메이션 효과도 넣고 반짝반짝하거나
+      옆으로 넘길 수 있거나"). 한 번에 한 명만 크게 보여 주고, 화살표 · 점 ·
+      손가락 밀기 · 방향키로 넘깁니다.
+
+     넘기는 일은 **CSS 가로 스크롤 + 스냅**이 맡습니다. 스크립트가 막혀도
+     손가락과 트랙패드로는 그대로 넘어가고, 화살표·점·기울임만 못 씁니다
+     (DESIGN.md 의 '켜는 것만 스크립트가 한다'와 같은 원칙입니다).
+
+   ⚠️ 사진은 이제 <img> 혼자가 아니라 **.phw 껍데기 안**에 들어갑니다.
+      <img> 에는 ::before/::after 를 못 붙여서, 도는 테두리·빛 스침·반짝임을
+      걸 자리가 필요했습니다. 사진을 갈아 끼울 때 .phw 는 그대로 두세요. */
+#pb .people,#pb .pmodal{position:relative}
+#pb .people-sec{
+  position:relative; isolation:isolate; overflow:hidden; min-height:100svh;
+  margin-left:calc(50% - 50vw + var(--ah-sb,0px)/2);
+  margin-right:calc(50% - 50vw + var(--ah-sb,0px)/2);
+  padding-left:max(22px,calc((100vw - 1120px)/2));
+  padding-right:max(22px,calc((100vw - 1120px)/2));
+  background:linear-gradient(135deg,rgba(0,175,236,.08),rgba(255,255,255,0) 45%,rgba(0,121,166,.075))
 }
+#pb .people-sec::before{
+  content:""; position:absolute; inset:-18% -16%; z-index:0; pointer-events:none;
+  background:
+    radial-gradient(circle at 16% 28%,rgba(0,175,236,.18) 0 7%,transparent 7.5%),
+    radial-gradient(ellipse at 78% 58%,rgba(113,190,255,.19) 0 20%,transparent 43%),
+    radial-gradient(ellipse at 38% 82%,rgba(0,121,166,.10) 0 15%,transparent 38%);
+  animation:pb-field 13s ease-in-out infinite alternate
+}
+#pb .people-sec::after{
+  content:""; position:absolute; z-index:0; pointer-events:none;
+  width:clamp(430px,58vw,760px); aspect-ratio:1; right:-24%; top:-20%;
+  border:clamp(7px,.8vw,12px) solid rgba(0,175,236,.18); border-radius:50%;
+  box-shadow:0 0 0 clamp(24px,3vw,44px) rgba(0,121,166,.07),
+             0 0 0 clamp(54px,6vw,88px) rgba(113,190,255,.08);
+  animation:pb-section-ring 21s linear infinite
+}
+#pb .people-sec > .sh,#pb .people-sec > .people{position:relative; z-index:1}
+/* 보는 창 */
+#pb .pv{
+  display:grid; overflow:hidden; padding:clamp(44px,5vw,72px) clamp(18px,4vw,52px) 32px
+}
+/* 2026-09-03 밤 — 사진을 왼쪽에 두던 것을 **넓은 화면에서도 위로** 올렸습니다
+   (사용자: "웹에서 볼 때도 프로필이 밑에 나오게 띄워"). 그래서 좁은 화면과
+   넓은 화면의 짜임이 같아졌고, 아래 미디어쿼리의 person 규칙은 없앴습니다. */
+/* 카드(흰 상자)도 없앴습니다 — 사용자: "틀도 없애고 사람 사진 주변으로
+   애니메이션 타원 형태를 만들어". 바탕도 테두리도 그림자도 없이 바로 놓고,
+   대신 사진 둘레를 도는 타원 둘이 지금 보는 사람을 가리킵니다. */
+#pb .person{
+  position:relative; grid-area:1/1;
+  display:grid; grid-template-columns:1fr; gap:clamp(14px,1.8vw,22px);
+  justify-items:center; text-align:center;
+  background:none; border:none; border-radius:0; padding:clamp(16px,2vw,26px) 10px clamp(20px,2.2vw,30px);
+  transform:perspective(1100px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) scale(var(--s,.955));
+  opacity:0; pointer-events:none;
+  transition:opacity .55s ease, transform .5s cubic-bezier(.22,1,.36,1)
+}
+/* 지금 보고 있는 한 명 */
+#pb .person.is-on{--s:1; opacity:1; pointer-events:auto}
+/* 기울임(마우스를 따라 살짝 눕습니다). 스크립트가 --rx/--ry 를 씁니다. */
+#pb .person.tilting{transition:opacity .55s ease, box-shadow .55s ease, transform .12s linear}
+
+/* 사진 껍데기.
+   ★ 2026-09-03 밤 — 파란 네모를 걷어냈습니다(사용자: "파란색 네모칸이 있는 거
+     별로야. 그거 지우고 자연스럽게 배경과 노출되게 해"). 그래서 여기에는
+     테두리도 바탕도 없습니다. 사진은 흑백으로 두고 가장자리를 흐려서
+     카드 바탕에 스미게 합니다 — 배경을 지운 인물 사진이 아니어도
+     네모난 경계가 보이지 않습니다.
+   ★ 도는 무지개 테두리도 함께 뺐습니다. 색을 걷어낸 화면에서 그것만
+     남으면 제일 먼저 눈에 띄어서, 흑백으로 가려던 이유가 사라집니다.
+     그 자리는 지금 보는 카드에만 도는 은은한 그림자가 대신합니다. */
+#pb .phw{
+  position:relative; width:min(440px,74vw); isolation:isolate;
+  transition:filter .5s ease, transform .5s cubic-bezier(.22,1,.36,1)
+}
+/* ── 사진 둘레를 도는 타원 둘 ──
+   틀(카드)을 없앤 자리를 이것이 대신합니다. 사진 뒤(z-index 0)에 있어서
+   얼굴을 가리지 않고 가장자리로만 지나갑니다.
+     · 바깥 타원(::after)  — 실선, 14초에 한 바퀴
+     · 안쪽 타원(.ring)    — 점선, 22초에 거꾸로 한 바퀴
+   원이 아니라 **타원**이라야 도는 것이 보입니다(정원은 돌아도 그대로입니다). */
+#pb .phw::after{
+  content:""; position:absolute; left:-24%; right:-24%; top:-10%; bottom:-10%;
+  border-radius:50%; border:clamp(4px,.65vw,9px) solid rgba(0,121,166,.25); z-index:0;
+  opacity:0; transition:opacity .7s
+}
+#pb .phw .ring{
+  position:absolute; left:-12%; right:-12%; top:-18%; bottom:-16%;
+  border-radius:50%; border:clamp(3px,.38vw,6px) solid rgba(0,175,236,.34); z-index:0;
+  opacity:0; transition:opacity .7s; pointer-events:none
+}
+#pb .phw .ring::before{
+  content:""; position:absolute; width:clamp(34px,4vw,58px); aspect-ratio:1;
+  left:7%; top:-5%; border-radius:50%; background:#55bdf0;
+  box-shadow:0 0 0 clamp(8px,1.2vw,18px) rgba(0,175,236,.10)
+}
+#pb .phw .ring::after{
+  content:""; position:absolute; width:46%; height:30%; right:-8%; top:12%;
+  border-radius:62% 38% 56% 44%;
+  background:linear-gradient(135deg,rgba(0,175,236,.58),rgba(113,190,255,.22))
+}
+#pb .person.is-on .phw::after{opacity:1; animation:pb-spin 14s linear infinite}
+#pb .person.is-on .phw .ring{opacity:1; animation:pb-spin 22s linear infinite reverse}
+/* 사진 뒤에 깔리는 옅은 그림자. 인물이 바탕에 얹힌 것처럼 보이게 합니다. */
+#pb .phw::before{
+  content:""; position:absolute; left:-8%; right:-8%; top:8%; bottom:5%;
+  border-radius:54% 46% 60% 40%; opacity:0; transition:opacity .6s; z-index:0;
+  background:linear-gradient(145deg,rgba(0,175,236,.34),rgba(123,201,255,.12) 64%,rgba(255,255,255,0));
+  filter:blur(1px)
+}
+#pb .person.is-on .phw::before{opacity:1; animation:pb-blob 7s ease-in-out infinite}
+/* 반짝임 — 사진 위에 뜨는 작은 별 넷. 자리를 흩어 두고 시차를 줍니다. */
+#pb .phw .spk{position:absolute; inset:0; z-index:3; pointer-events:none; opacity:0; transition:opacity .5s}
+#pb .person.is-on .phw .spk{opacity:1}
+/* 사진 주변 반짝임도 브랜드색을 씁니다. */
+#pb .phw .spk i{
+  position:absolute; width:13px; height:13px; margin:-6.5px 0 0 -6.5px; font-style:normal;
+  background:radial-gradient(circle,rgba(255,255,255,.95) 0 16%,rgba(0,175,236,.75) 32%,transparent 64%);
+  transform:scale(0); animation:pb-twinkle 3.4s ease-in-out infinite
+}
+#pb .phw .spk i:nth-child(1){left:22%; top:16%; animation-delay:.0s}
+#pb .phw .spk i:nth-child(2){left:80%; top:29%; animation-delay:.9s; width:10px; height:10px; margin:-5px 0 0 -5px}
+#pb .phw .spk i:nth-child(3){left:12%; top:68%; animation-delay:1.7s; width:11px; height:11px; margin:-5.5px 0 0 -5.5px}
+#pb .phw .spk i:nth-child(4){left:72%; top:82%; animation-delay:2.5s}
+/* 빛 스침 — 사진 위를 대각선으로 한 번씩 지나갑니다 */
+#pb .phw .shine{
+  position:absolute; inset:0; z-index:2; pointer-events:none; overflow:hidden;
+  -webkit-mask-image:radial-gradient(72% 74% at 50% 42%,#000 52%,transparent 100%);
+  mask-image:radial-gradient(72% 74% at 50% 42%,#000 52%,transparent 100%)
+}
+#pb .phw .shine::after{
+  content:""; position:absolute; top:-60%; bottom:-60%; width:42%; left:-60%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.72),transparent);
+  transform:skewX(-18deg)
+}
+#pb .person.is-on .phw .shine::after{animation:pb-shine 3.6s cubic-bezier(.4,0,.2,1) infinite}
 /* 사진 자리. 실제 사진이 오면 이 div 를 같은 class 의 <img> 로 바꾸면 됩니다
    — 크기·비율·잘림(object-fit)까지 이 규칙 하나가 둘 다 맡습니다.
    object-position 이 top 인 이유: 상반신 사진은 위에서 잘라야 얼굴이 남습니다. */
+/* 사진.
+   ⚠️ 네모난 테두리도 바탕도 없습니다. 대신 **가장자리를 둥글게 흐려서**
+      (mask) 카드 바탕에 스미게 합니다. mask 를 모르는 옛 브라우저에서는
+      사진이 네모로 보일 뿐, 깨지지는 않습니다.
+   ⚠️ 흑백입니다(사용자: "전문적인 느낌을 내려면 흑백"). 색을 되돌리고 싶으면
+      아래 filter 한 줄만 지우면 됩니다. */
 #pb .pho{
-  width:100%; aspect-ratio:4/5; border-radius:14px;
+  position:relative; z-index:1;
+  width:100%; aspect-ratio:4/5;
   object-fit:cover; object-position:top center;
-  background:var(--tint); border:1px solid var(--line);
-  display:grid; place-items:center; align-content:center; gap:8px;
-  font-family:GmarketSans,sans-serif; font-size:clamp(46px,5vw,70px); font-weight:700; color:var(--deep)
+  border:none; background:none;
+  -webkit-mask-image:radial-gradient(72% 74% at 50% 42%,#000 52%,transparent 100%);
+  mask-image:radial-gradient(72% 74% at 50% 42%,#000 52%,transparent 100%);
+  display:grid; place-items:center; align-content:center; gap:6px;
+  font-family:GmarketSans,sans-serif; font-size:clamp(52px,6vw,78px); font-weight:700;
+  color:var(--deep)
 }
-#pb .pho em{font-style:normal; font-size:12.5px; font-weight:700; color:var(--faint)}
-#pb .person .nm{display:block; font-family:GmarketSans,sans-serif; font-size:clamp(21px,2.2vw,27px); font-weight:700; color:var(--ink)}
+/* 아직 사진이 없는 자리 — 네모 대신 옅은 안개 한 겹과 흐린 이니셜만 둡니다.
+   <img> 로 바뀌면 이 규칙은 저절로 안 걸립니다(div 일 때만 걸립니다). */
+#pb div.pho{
+  background:radial-gradient(58% 52% at 50% 44%,rgba(0,175,236,.16),rgba(0,121,166,0) 72%);
+  filter:none
+}
+#pb .person.is-on div.pho{background-size:150% 150%; animation:pb-haze 11s ease-in-out infinite}
+#pb .pho em{font-style:normal; font-size:12px; font-weight:700; color:var(--deep); letter-spacing:.02em}
+
+/* ── 넘기는 장치 — 화살표 · 점 · 몇 번째인지 ── */
+#pb .pnav{
+  position:absolute; top:calc(50% - 22px); z-index:4;
+  width:46px; height:46px; border-radius:50%; cursor:pointer;
+  border:1px solid var(--line); background:rgba(255,255,255,.94); color:var(--deep);
+  font-size:22px; font-weight:700; line-height:1; display:grid; place-items:center;
+  box-shadow:0 8px 22px -8px rgba(6,35,48,.4);
+  transition:transform .2s, background .2s, color .2s, box-shadow .2s, opacity .25s
+}
+#pb .pnav:hover{background:var(--brand); border-color:var(--brand); color:#fff; transform:scale(1.12)}
+#pb .pnav:active{transform:scale(.96)}
+#pb .pnav[disabled]{opacity:.28; cursor:default; transform:none; background:rgba(255,255,255,.94); color:var(--deep)}
+#pb .pnav.prev{left:-8px}
+#pb .pnav.next{right:-8px}
+#pb .pbar{display:flex; align-items:center; justify-content:center; gap:14px; margin-top:2px}
+#pb .pcount{display:none}
+#pb .pcount b{color:var(--deep)}
+#pb .phint{margin-top:9px; text-align:center; font-size:12.5px; color:var(--faint)}
+
+/* 카루셀에서는 '이력 보기' 딱지를 감춥니다 — 그 화면에는 이력이 이미 다 있습니다.
+   ⚠️ 아래 미디어쿼리보다 **먼저** 와야 합니다. 뒤에 두면 같은 우선순위라
+      나중 규칙이 이겨서 넓은 화면에서도 딱지가 안 보입니다(2026-09-03 실수). */
+#pb .person .more{display:none}
+
+/* PC와 휴대전화 모두 한 명씩 보여 줍니다. 아래 이름을 눌러 바꿉니다. */
+@media(min-width:900px){
+  #pb .person{
+    grid-template-columns:minmax(430px,1.08fr) minmax(330px,.92fr);
+    align-items:center; gap:clamp(42px,6vw,86px); min-height:620px;
+    padding:12px clamp(20px,3vw,48px)
+  }
+  #pb .person > div:last-child{text-align:left}
+  #pb .person .nm{font-size:clamp(30px,3vw,42px)}
+  #pb .tags{justify-content:flex-start}
+}
+/* ═══ 전문위원 창 ═══
+   카드를 누르면 슝 하고 떠오릅니다. 안에 들어가는 내용은 카드에서 그대로
+   옮겨 담습니다 — 이름·분야·이력이 마크업 한 곳에만 있게 하려는 것입니다.
+   ⚠️ <dialog> 라서 Esc 닫기·바깥 어둡게·초점 가두기를 브라우저가 맡습니다. */
+#pb .pmodal{
+  width:min(920px,calc(100% - 40px)); max-height:calc(100% - 40px);
+  padding:0; border:0; border-radius:20px; overflow:hidden;
+  background:#fff; color:var(--ink);
+  box-shadow:0 40px 90px -40px rgba(6,35,48,.6)
+}
+#pb .pmodal::backdrop{background:rgba(6,35,48,.62)}
+@keyframes pb-zoom{
+  from{opacity:0; transform:scale(.88) translateY(26px)}
+  to  {opacity:1; transform:none}
+}
+@keyframes pb-fade{from{opacity:0} to{opacity:1}}
+#pb .pmodal[open]{animation:pb-zoom .36s cubic-bezier(.22,1,.36,1)}
+#pb .pmodal[open]::backdrop{animation:pb-fade .36s ease}
+#pb .pmodal-bar{
+  position:absolute; top:14px; left:14px; right:14px; z-index:2;
+  display:flex; justify-content:flex-end; gap:8px; pointer-events:none
+}
+#pb .pmodal-bar button{
+  pointer-events:auto; width:40px; height:40px; padding:0;
+  border:1px solid var(--line); border-radius:999px;
+  background:rgba(255,255,255,.94); color:var(--deep);
+  font-size:19px; line-height:1; cursor:pointer;
+  transition:background .18s, color .18s, transform .18s, border-color .18s
+}
+#pb .pmodal-bar button:hover:not([disabled]){
+  background:var(--brand); border-color:var(--brand); color:#fff; transform:scale(1.08)
+}
+#pb .pmodal-bar button[disabled]{opacity:.3; cursor:default}
+#pb .pmodal-bar .pmodal-prev{margin-right:auto}   /* ‹ 만 왼쪽 끝으로 */
+#pb .pmodal-in{padding:38px; overflow:auto; max-height:calc(100vh - 40px)}
+/* 창 안에서는 사진을 왼쪽에 크게 두고 오른쪽에 이력을 폅니다 —
+   카드(사진 위·글 아래)와 달리, 여기서는 가로가 넉넉합니다. */
+#pb .pmodal .person{
+  display:grid; grid-template-columns:260px minmax(0,1fr); gap:32px;
+  align-items:start; justify-items:start; text-align:left;
+  background:transparent; border:0; padding:0; cursor:default;
+  opacity:1; --s:1; transform:none
+}
+#pb .pmodal .person.is-on{box-shadow:none; transform:none}
+#pb .pmodal .person .phw{width:100%}
+#pb .pmodal .person > div:last-child{max-width:none}
+#pb .pmodal .person .nm{font-size:clamp(24px,2.6vw,32px)}
+#pb .pmodal .person .tags{justify-content:flex-start}
+#pb .pmodal .person .career{display:block; margin-top:20px}
+#pb .pmodal .person .more{display:none}
+@media(max-width:700px){
+  /* 좁은 화면에서는 화면을 꽉 채웁니다 — 가운데 뜬 작은 창은 읽기 나쁩니다. */
+  #pb .pmodal{width:100%; max-width:100%; height:100%; max-height:100%; border-radius:0}
+  #pb .pmodal-in{padding:64px 20px 34px; max-height:100vh}
+  #pb .pmodal .person{grid-template-columns:1fr; justify-items:center; text-align:center}
+  #pb .pmodal .person .tags{justify-content:center}
+  #pb .pmodal .person .phw{width:min(240px,72%)}
+}
+/* 사진 아래 — 이름 · 분야 · 이력.
+   이름과 분야는 가운데, 이력만 왼쪽으로 맞춥니다. 이력까지 가운데로 두면
+   '현/전' 배지가 줄마다 다른 자리에 서서 훑을 수가 없습니다. */
+#pb .person > div:last-child{width:100%; max-width:660px}
+#pb .person .nm{display:block; font-family:GmarketSans,sans-serif; font-size:clamp(22px,2.3vw,29px); font-weight:700; color:var(--ink)}
 /* 분야 — 예전의 '담당' 한 줄을 대신합니다. 여럿이라 칩으로 늘어놓습니다. */
-#pb .tags{display:flex; flex-wrap:wrap; gap:6px; margin-top:10px}
+#pb .tags{display:flex; flex-wrap:wrap; justify-content:center; gap:6px; margin-top:10px}
 #pb .tags span{
   border-radius:999px; padding:3px 11px; font-size:12px; font-weight:700;
   background:var(--band); color:var(--soft); white-space:nowrap
 }
 /* 이력. 왼쪽에 현/전 배지를 세로로 맞춰 세우면 훑기 좋습니다. */
-#pb .career{margin-top:18px; padding-top:16px; border-top:1px solid var(--line)}
+#pb .career{margin-top:18px; padding-top:16px; border-top:1px solid var(--line); text-align:left}
 #pb .career li{display:flex; align-items:flex-start; gap:10px; padding:6px 0;
   font-size:14.5px; line-height:1.6; color:var(--soft)}
 #pb .career li i{
@@ -277,6 +581,21 @@ body { margin: 0; background: #fff; }
 }
 #pb .career li i.now{background:var(--tint); border-color:var(--brand); color:var(--deep)}
 #pb .career .none{padding:5px 0; font-size:13.5px; color:var(--faint)}
+
+@media(min-width:900px){
+  #pb .pv .person{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #pb .pv .person > div:last-child{
+    max-width:none; min-height:520px; padding:30px 22px 30px 0;
+    display:flex; flex-direction:column; justify-content:center
+  }
+  #pb .pv .person .nm{font-size:clamp(34px,3.4vw,46px)}
+  #pb .pv .tags{margin-top:18px}
+  #pb .pv .tags span{padding:5px 14px; font-size:14px}
+  #pb .pv .career{margin-top:30px; padding-top:24px}
+  #pb .pv .career li{gap:14px; padding:10px 0; font-size:clamp(15.5px,1.35vw,18px); line-height:1.65}
+  #pb .pv .career li i{min-width:46px; padding:3px 8px; font-size:12px}
+  #pb .pv .career .none{font-size:16px}
+}
 
 /* ───── 글 목록 ───── */
 #pb .rows{border-top:2px solid var(--ink)}
@@ -293,7 +612,15 @@ body { margin: 0; background: #fff; }
 /* ───── 기관 의뢰 폼 ─────
    시민 질문(2칸)과 기관 의뢰(5칸)를 나눈 이유: 쓰는 사람이 다릅니다.
    시민에게 기관·담당자·인원을 물으면 거기서 그만둡니다. */
-#pb .form{background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:22px}
+/* 2026-09-04 — 넓은 화면에서 폼을 가운데로 좁혔습니다(사용자 결정).
+   1120px 를 꽉 채우면 이메일 한 칸이 1075px 로 화면을 가로질러, 다 채운 뒤에도
+   어디까지 적었는지 눈이 못 따라갑니다. 질문 폼(.ask)은 칸이 셋뿐이라 꽉 차도
+   괜찮지만, 여기는 칸이 여덟입니다. 폭은 아래 --form-w 한 곳에서 정합니다. */
+/* 가운데로 좁히는 칸. 지금은 교육·컨설팅 의뢰 하나뿐입니다. */
+#pb .sec.is-narrow>.sh{width:min(100%,760px); margin-inline:auto}
+#pb .form{--form-w:760px;
+  background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:22px;
+  width:min(100%,var(--form-w)); margin-inline:auto}
 #pb .two{display:grid; grid-template-columns:1fr 1fr; gap:12px}
 #pb .f{display:flex; flex-direction:column; gap:6px; margin-bottom:12px}
 #pb .f label{font-size:12.5px; font-weight:700}
@@ -302,12 +629,63 @@ body { margin: 0; background: #fff; }
   font-family:inherit; font-size:14.5px; background:#fff; color:var(--ink)
 }
 #pb .f textarea{min-height:88px; resize:vertical}
+/* 꼭 적어야 하는 칸 딱지. 동의 칸의 i.must 와 같은 모양입니다(2026-09-04).
+   ⚠️ 연락처 택일의 '둘 중 하나'(.pairhead .req)도 여기서 같이 칠합니다 —
+      선택자에서 빼면 알약이 안 붙고 기울임 글씨로만 나옵니다(한 번 겪었습니다). */
+#pb .f label .req,#pb .pairhead .req{
+  font-style:normal; font-size:11px; font-weight:700; margin-left:5px;
+  color:var(--deep); border:1px solid var(--brand); background:var(--tint);
+  border-radius:999px; padding:1px 7px
+}
+/* 참고 자료 첨부. 브라우저가 그리는 '파일 선택' 단추는 손댈 수 없어서,
+   테두리만 다른 칸과 맞추고 안쪽 여백으로 높이를 맞춥니다. */
+#pb .f.files input[type=file]{
+  border:1.5px dashed var(--line); border-radius:9px; padding:10px 12px;
+  font-family:inherit; font-size:13.5px; background:#fff; color:var(--soft); cursor:pointer
+}
+#pb .f.files input[type=file]:focus{outline:none; border-color:var(--brand)}
+#pb .f.files input[type=file]::file-selector-button{
+  font-family:inherit; font-size:13px; font-weight:700; color:var(--deep);
+  border:1px solid var(--brand); background:var(--tint); border-radius:7px;
+  padding:6px 12px; margin-right:10px; cursor:pointer
+}
+#pb .f.files .filehint{margin-top:2px}
+/* 연락처 택일 묶음. 머리 한 줄이 두 칸을 함께 이고 있습니다 —
+   칸마다 '둘 중 하나' 딱지를 붙이면 서로 무관한 필수 칸 둘로 읽힙니다. */
+#pb .pair{margin-bottom:12px}
+#pb .pairhead{font-size:12.5px; font-weight:700; margin-bottom:6px}
+#pb .pair .two .f{margin-bottom:0}
+/* 의뢰 유형 — 여러 개 고르는 묶음 */
+#pb .kinds{
+  border:1px solid var(--line); border-radius:10px; background:#fff;
+  padding:14px 16px 16px; margin:0 0 12px
+}
+#pb .kinds legend{
+  padding:0 6px; font-size:12.5px; font-weight:700; color:var(--ink)
+}
+#pb .kinds legend .hint{margin-left:6px; font-weight:400; color:var(--faint)}
+/* 2026-09-04 — 여섯 줄이 왼쪽에 세로로 몰리고 오른쪽이 통째로 비어 있었습니다.
+   두 칸으로 접습니다. 좁은 화면(420px 밑)에서는 저절로 한 칸으로 돌아옵니다. */
+#pb .form .kinds .opts{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:2px 18px; margin-top:4px}
+#pb .form .kinds .opt{margin-top:7px}
+/* '기타' 줄만 직접 입력 칸을 옆에 답니다.
+   ⚠️ 두 칸 짜임이라 이 줄은 칸 하나를 넘겨 씁니다 — 안 그러면 입력 칸이 90px 로 찌부러집니다. */
+#pb .form .kinds .opt.etc{align-items:center; flex-wrap:wrap; grid-column:1/-1}
+#pb .form .kinds .opt.etc input[type=text]{
+  flex:0 1 240px; min-width:0; border:1px solid var(--line); border-radius:8px;
+  padding:8px 11px; font-family:inherit; font-size:14px; background:#fff; color:var(--ink)
+}
+#pb .form .kinds .opt.etc input[type=text]:focus{outline:none; border-color:var(--brand)}
 #pb .f input:focus,#pb .f textarea:focus{outline:none; border-color:var(--brand)}
+/* ⚠️ 동의 체크박스(.opt)와 이 버튼이 맞닿아 있었습니다. 누르기 전에 읽어야 하는 줄이라
+   사이를 띄웁니다. 위 잔글씨(.fine)와 동의 줄 사이도 함께 벌렸습니다. */
 #pb .form .go{
-  width:100%; border:none; border-radius:9px; background:var(--ink); color:#fff;
+  width:100%; margin-top:16px; border:none; border-radius:9px; background:var(--ink); color:#fff;
   padding:13px; font-size:15px; font-weight:700; cursor:pointer
 }
 #pb .form .go:hover{background:#000}
+#pb .form .fine+.opt{margin-top:14px}
 
 /* ───── 연락 ───── */
 /* 연락 칸(.contact) 규칙은 2026-09-03 에 지웠습니다 — 칸 자체를 뺐습니다(하단과 겹침). */
@@ -320,29 +698,382 @@ body { margin: 0; background: #fff; }
   text-align:center; padding:8px 16px; font-size:12.5px; font-weight:700
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   움직임 (2026-09-03 저녁)
+   사용자: "전체적으로 페이지에 애니메이션 효과 좀 넣어봐."
+
+   ★ 규칙 하나 — **안 보이게 만드는 것은 전부 `#pb.js` 안에서만** 합니다.
+     스크립트가 막히거나 늦게 뜨면 `js` 가 안 붙고, 그러면 모든 칸이
+     처음부터 그냥 보입니다. 이 조건이 없으면 스크립트 하나 막혔을 때
+     페이지가 백지가 됩니다.
+   ★ 이름 앞에 전부 `pb-` 를 붙였습니다 — 캠페이너스에 붙는 코드라
+     홈페이지의 다른 @keyframes 와 이름이 겹치면 둘 다 이상해집니다.
+   ★ 움직임을 끈 사람(prefers-reduced-motion)에게는 맨 아래에서 전부 멉니다.
+   ═══════════════════════════════════════════════════════════════ */
+@keyframes pb-spin{to{transform:rotate(1turn)}}
+@keyframes pb-blob{
+  0%,100%{transform:translate(-2%,-1%) rotate(-5deg) scale(.96)}
+  50%{transform:translate(4%,3%) rotate(8deg) scale(1.05)}
+}
+@keyframes pb-field{
+  0%{transform:translate3d(-3%,-2%,0) rotate(-2deg) scale(.98)}
+  55%{transform:translate3d(4%,3%,0) rotate(3deg) scale(1.06)}
+  100%{transform:translate3d(-1%,6%,0) rotate(-1deg) scale(1.02)}
+}
+@keyframes pb-section-ring{
+  0%{transform:translate3d(0,0,0) rotate(0deg) scale(.94)}
+  50%{transform:translate3d(-8%,7%,0) rotate(180deg) scale(1.08)}
+  100%{transform:translate3d(0,0,0) rotate(360deg) scale(.94)}
+}
+@keyframes pb-twinkle{
+  0%,100%{transform:scale(0) rotate(0deg); opacity:0}
+  45%{transform:scale(1) rotate(90deg); opacity:1}
+  70%{transform:scale(.2) rotate(140deg); opacity:.3}
+}
+@keyframes pb-shine{0%{left:-60%}55%,100%{left:130%}}
+/* 사진이 아직 없는 자리의 옅은 안개가 아주 천천히 움직입니다.
+   (예전 pb-aurora 는 파란 바탕 두 겹을 서로 엇갈리게 미는 것이었는데,
+    바탕을 걷어내면서 한 겹짜리로 바뀌어 이 이름으로 다시 지었습니다.) */
+@keyframes pb-haze{0%,100%{background-position:46% 44%}50%{background-position:56% 50%}}
+@keyframes pb-rise{from{opacity:0; transform:translateY(22px)}to{opacity:1; transform:none}}
+@keyframes pb-slide-in{from{opacity:0; transform:translateX(-44px)}to{opacity:1; transform:none}}
+@keyframes pb-slide-near{from{opacity:0; transform:translateX(-18px)}to{opacity:1; transform:none}}
+@keyframes pb-pop{0%{transform:scale(1)}40%{transform:scale(1.06)}100%{transform:scale(1)}}
+@keyframes pb-float{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(3%,-4%,0) scale(1.08)}}
+@keyframes pb-sweep{0%{left:-45%}100%{left:135%}}
+@keyframes pb-caret{0%,100%{transform:translateX(0)}50%{transform:translateX(4px)}}
+
+/* ── 스크롤하면 하나씩 떠오릅니다 ──
+   붙이는 자리는 스크립트가 고릅니다(칸 머리 · 카드 · 문답 · 글줄 · 폼).
+   --d 는 같은 줄 안에서 순서대로 늦추는 값입니다. */
+#pb.js .rv{opacity:0; transform:translateY(20px)}
+#pb.js .rv.in{
+  animation:pb-rise .72s cubic-bezier(.22,1,.36,1) var(--d,0s) both
+}
+/* 소개 칸만 아래가 아니라 **왼쪽에서** 들어옵니다(2026-09-04 사용자 요청).
+   .rv 보다 클래스가 하나 많아서 위의 떠오르기를 덮어씁니다. */
+#pb.js .cintro.rv{transform:translateX(-44px)}
+#pb.js .cintro.rv.in{
+  animation:pb-slide-in .8s cubic-bezier(.22,1,.36,1) var(--d,0s) both
+}
+/* 물음 셋은 칸이 자리잡은 뒤 짧게 뒤따라옵니다. 거리가 칸보다 짧아야
+   한 덩이가 밀려온 것처럼 보입니다(같은 거리면 따로 노는 것처럼 보입니다). */
+#pb.js .cintro .cin-row{opacity:0}
+#pb.js .cintro.in .cin-row{
+  animation:pb-slide-near .62s cubic-bezier(.22,1,.36,1) both
+}
+#pb.js .cintro.in .cin-row:nth-of-type(1){animation-delay:.30s}
+#pb.js .cintro.in .cin-row:nth-of-type(2){animation-delay:.40s}
+#pb.js .cintro.in .cin-row:nth-of-type(3){animation-delay:.50s}
+
+/* ── 히어로 ── */
+#pb .hero{position:relative; overflow:hidden}
+#pb .hero > .wrap{position:relative; z-index:1}
+/* 천천히 떠다니는 빛 덩이 둘. 배경이라 소리도 뜻도 없습니다. */
+#pb .hero::before,#pb .hero::after{
+  content:""; position:absolute; border-radius:50%; pointer-events:none;
+  filter:blur(46px); opacity:.55
+}
+#pb .hero::before{
+  width:min(46vw,520px); aspect-ratio:1; left:-8%; top:-22%;
+  background:radial-gradient(circle,rgba(0,175,236,.42),rgba(0,175,236,0) 68%);
+  animation:pb-float 15s ease-in-out infinite
+}
+#pb .hero::after{
+  width:min(38vw,440px); aspect-ratio:1; right:-6%; bottom:-30%;
+  background:radial-gradient(circle,rgba(0,121,166,.34),rgba(0,121,166,0) 68%);
+  animation:pb-float 19s ease-in-out infinite reverse
+}
+#pb.js .hero h1{animation:pb-rise .85s cubic-bezier(.22,1,.36,1) both}
+#pb.js .hero .by{animation:pb-rise .85s cubic-bezier(.22,1,.36,1) .12s both}
+#pb.js .hero .ask{animation:pb-rise .9s cubic-bezier(.22,1,.36,1) .24s both}
+#pb .hero .ask{transition:box-shadow .45s ease, transform .45s cubic-bezier(.22,1,.36,1)}
+#pb .hero .ask:focus-within{box-shadow:0 18px 46px -18px rgba(0,121,166,.55); transform:translateY(-3px)}
+
+/* ── 누르는 것들 ── */
+#pb .ask .who button{transition:transform .18s cubic-bezier(.22,1,.36,1), border-color .18s, color .18s, background .18s, box-shadow .18s}
+#pb .ask .who button:hover{transform:translateY(-2px)}
+#pb .ask .who button[aria-pressed="true"]{box-shadow:0 8px 18px -8px rgba(0,175,236,.75); animation:pb-pop .34s ease}
+/* 보내기 단추 — 위로 뜨고, 그 위를 빛이 한 번 지나갑니다 */
+#pb .ask .go,#pb .form .go{position:relative; overflow:hidden; transition:transform .2s cubic-bezier(.22,1,.36,1), background .2s, box-shadow .2s}
+#pb .ask .go:hover,#pb .form .go:hover{transform:translateY(-2px); box-shadow:0 14px 28px -12px rgba(0,121,166,.7)}
+#pb .ask .go:active,#pb .form .go:active{transform:translateY(0) scale(.99)}
+#pb .ask .go::after,#pb .form .go::after{
+  content:""; position:absolute; top:-50%; bottom:-50%; width:38%; left:-45%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.38),transparent);
+  transform:skewX(-20deg); pointer-events:none
+}
+#pb .ask .go:hover::after,#pb .form .go:hover::after{animation:pb-sweep .85s ease-out}
+#pb .f input,#pb .f textarea,#pb .ask input,#pb .ask textarea{transition:border-color .18s, box-shadow .18s, background .18s}
+#pb .f input:focus,#pb .f textarea:focus,#pb .ask input:focus,#pb .ask textarea:focus{box-shadow:0 0 0 4px rgba(0,175,236,.14)}
+#pb .opt input{transition:transform .18s}
+#pb .opt:hover input{transform:scale(1.12)}
+
+/* ── 말 뜻 카드 ── */
+#pb .word{
+  position:relative; overflow:hidden;
+  transition:background .22s, border-color .22s, color .22s,
+             transform .28s cubic-bezier(.22,1,.36,1), box-shadow .28s
+}
+#pb .word:hover{transform:translateY(-4px); box-shadow:0 16px 30px -16px rgba(6,35,48,.45)}
+#pb .word::after{
+  content:""; position:absolute; top:-50%; bottom:-50%; width:45%; left:-55%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);
+  transform:skewX(-20deg); pointer-events:none
+}
+#pb .word:hover::after{animation:pb-sweep .9s ease-out}
+#pb .word[aria-pressed="true"]{animation:pb-pop .42s cubic-bezier(.22,1,.36,1)}
+#pb .word[aria-pressed="true"]::after{
+  background:linear-gradient(90deg,transparent,rgba(143,231,255,.55),transparent);
+  animation:pb-sweep 1s ease-out
+}
+#pb .word[aria-pressed="true"] span{animation:pb-rise .4s ease both}
+
+/* ── 문답 ── */
+#pb .qa summary{transition:color .18s, padding-left .25s cubic-bezier(.22,1,.36,1)}
+#pb .qa summary:hover{padding-left:6px}
+#pb .mark{transition:transform .3s cubic-bezier(.22,1,.36,1)}
+#pb .qa .item[open] .mark.q{transform:rotate(-8deg) scale(1.12)}
+#pb .qa .item[open] .ans{animation:pb-rise .42s cubic-bezier(.22,1,.36,1) both}
+#pb .qa .item{transition:background .25s}
+#pb .qa .item:hover{background:linear-gradient(90deg,rgba(226,245,253,.55),rgba(226,245,253,0))}
+
+/* ── 글 목록 ── */
+#pb .row{transition:padding-left .28s cubic-bezier(.22,1,.36,1), background .25s}
+#pb .row .t{transition:color .18s}
+#pb a.row:hover{padding-left:8px; background:linear-gradient(90deg,rgba(226,245,253,.6),rgba(226,245,253,0))}
+#pb a.row .t::after{content:"→"; margin-left:8px; color:var(--brand); opacity:0; transition:opacity .2s}
+#pb a.row:hover .t::after{opacity:1; animation:pb-caret 1.1s ease-in-out infinite}
+
+/* ── 이력이 한 줄씩 들어옵니다(지금 보는 사람 것만) ── */
+/* ⚠️ 여기서 `.career li{opacity:0}` 으로 미리 숨기면 안 됩니다.
+   지금 보는 카드 표시(is-on)가 한 번이라도 어긋나면 이름만 있고 이력은
+   통째로 빈 카드가 됩니다(실제로 그런 화면을 봤습니다).
+   숨기는 것은 애니메이션의 시작 상태(both)에게만 맡깁니다 — 그러면
+   무슨 일이 있어도 글자는 남습니다. */
+#pb.js .person.is-on .career li{animation:pb-rise .5s cubic-bezier(.22,1,.36,1) both}
+#pb.js .person.is-on .career li:nth-child(1){animation-delay:.10s}
+#pb.js .person.is-on .career li:nth-child(2){animation-delay:.17s}
+#pb.js .person.is-on .career li:nth-child(3){animation-delay:.24s}
+#pb.js .person.is-on .career li:nth-child(4){animation-delay:.31s}
+#pb.js .person.is-on .career li:nth-child(5){animation-delay:.38s}
+#pb .tags span{transition:transform .2s cubic-bezier(.22,1,.36,1), background .2s, color .2s}
+#pb .person.is-on .tags span:hover{transform:translateY(-2px); background:var(--tint); color:var(--deep)}
+
+/* ── 전문적인 시각 체계 ──
+   섹션마다 다른 표정을 없애고, 제목·선·카드·정보 표시에 같은 규칙을 씁니다. */
+#pb .sec{border-top-color:var(--line)}
+#pb .sec > .sh{position:relative; padding-top:17px}
+#pb .sec > .sh::before{
+  content:""; position:absolute; top:0; left:0; width:46px; height:4px;
+  background:linear-gradient(90deg,var(--deep),var(--brand)); border-radius:1px
+}
+#pb .sh h2{color:var(--navy)}
+#pb .sh p{color:var(--soft)}
+
+/* ── 소속을 밝히는 세 자리 (2026-09-04) ──
+   첫 화면에는 안 쓰고, 여기서부터 밝힙니다. 순서가 '사람 → 단체' 라야
+   단체 이름이 정체가 아니라 보증으로 읽힙니다. */
+/* 눈꼬리 — 제목 위, 파란 선 아래. 제목을 길게 붙이지 않으려고 갈라 둔 줄입니다. */
+#pb .sh .eyebrow{margin:0 0 5px; font-size:13px; font-weight:700; color:var(--deep)}
+/* 위원회 소개 — 얼굴 넷 바로 위. 소속과 하는 일만 적습니다.
+   ⚠️ 위원회 칸은 바탕에 도는 그림이 깔려 있어서 z-index 를 줘야 묻히지 않습니다. */
+#pb .cintro{
+  position:relative; z-index:1;
+  max-width:64ch; margin:0 0 clamp(6px,1vw,14px);
+  padding:clamp(16px,1.8vw,22px) clamp(18px,2vw,26px);
+  border:1px solid var(--line); border-left:4px solid var(--brand);
+  border-radius:10px; background:rgba(255,255,255,.74)
+}
+#pb .cintro p{margin:0; font-size:14.5px; line-height:1.75; color:var(--soft)}
+#pb .cintro p + p{margin-top:12px}
+#pb .cintro b{color:var(--navy)}
+#pb .cintro-lead{font-size:16px; font-weight:600; color:var(--navy)}
+/* 물음 셋. 아직 답이 없어서 자리만 잡아 둔 줄입니다. */
+#pb .cin-row{
+  display:grid; gap:4px; margin-top:13px; padding-top:13px;
+  border-top:1px solid var(--line)
+}
+#pb .cintro .cin-row p{margin:0}
+#pb .cin-q{font-size:13.5px; font-weight:700; color:var(--deep); line-height:1.6}
+#pb .cin-a{font-size:13.5px; color:var(--faint); line-height:1.7}
+#pb .cin-a .tbd{margin-right:7px}
+#pb .tbd{
+  color:#765213; background:#fbf5e9; border-color:#d8c49e;
+  font-family:'Pretendard Variable',Pretendard,sans-serif; font-weight:700
+}
+
+/* 질문과 의뢰는 같은 종류의 접수 화면이라는 것이 보이도록 맞춥니다. */
+#pb .hero .ask,#pb .form{
+  border:1px solid var(--line); border-top:4px solid var(--deep);
+  border-radius:12px; box-shadow:0 14px 36px -26px rgba(6,35,48,.42)
+}
+#pb .form{background:#f7fafb}
+#pb .ask textarea,#pb .ask input,#pb .f input,#pb .f textarea{border-radius:7px}
+#pb .ask .go,#pb .form .go{border-radius:7px}
+#pb .ask .go{background:var(--deep)}
+#pb .ask .go:hover{background:var(--navy)}
+#pb .form .go{background:var(--navy)}
+#pb .ask .fine,#pb .form .fine,#pb .ask .legal,#pb .form .legal{color:var(--soft)}
+
+/* 질문·글 목록은 단단한 기준선과 동일한 행 간격을 씁니다. */
+#pb .qa,#pb .rows{border-top:3px solid var(--navy)}
+#pb .qa .item,#pb .row{border-bottom-color:var(--line)}
+#pb .mark{border-radius:7px}
+#pb .qa .item:hover{background:linear-gradient(90deg,rgba(226,245,253,.55),transparent 72%)}
+#pb .row .meta{font-variant-numeric:tabular-nums; letter-spacing:.02em}
+
+#pb .word{
+  align-items:center; text-align:center; border:1px solid var(--line);
+  border-top:3px solid rgba(0,121,166,.58); border-radius:8px; background:#fff;
+  box-shadow:0 10px 24px -24px rgba(6,35,48,.6)
+}
+#pb .word[aria-pressed="true"]{background:var(--navy); border-color:var(--navy)}
+#pb .word:hover{transform:translateY(-2px); box-shadow:0 16px 28px -20px rgba(6,35,48,.38)}
+
+/* 위원회는 화면을 꽉 쓰되, 격자와 느린 궤도로 '데이터·제도' 인상을 줍니다. */
+#pb .people-sec{
+  background:
+    linear-gradient(rgba(0,121,166,.032) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,121,166,.032) 1px,transparent 1px),
+    linear-gradient(135deg,rgba(0,175,236,.075),rgba(255,255,255,0) 45%,rgba(0,121,166,.07));
+  background-size:56px 56px,56px 56px,100% 100%
+}
+#pb .people-sec::before{animation-duration:26s; opacity:.86}
+#pb .people-sec::after{animation-duration:38s}
+#pb .person.is-on .phw::after{animation-duration:26s}
+#pb .person.is-on .phw .ring{animation-duration:38s}
+#pb .person.is-on .phw::before{animation-duration:20s}
+#pb .person.is-on .phw .shine::after{animation-duration:9s}
+#pb .person.is-on .phw .spk{opacity:.48}
+#pb .phw .spk i{width:9px; height:9px; margin:-4.5px 0 0 -4.5px; animation-duration:7.2s}
+#pb .pnav{border-radius:10px; box-shadow:0 10px 24px -12px rgba(6,35,48,.45)}
+#pb .career li{border-bottom:1px solid rgba(207,222,229,.72)}
+#pb .career li:last-child{border-bottom:0}
+
+/* ── 넓은 화면 글자 크기 ──
+   모바일의 조밀한 비율은 그대로 두고, 900px부터 읽는 크기를 확실히 키웁니다. */
+@media(min-width:900px){
+  #pb{font-size:19px}
+  #pb .sec{padding-top:82px; padding-bottom:82px}
+  #pb .sh h2{font-size:clamp(32px,3vw,42px)}
+  #pb .sh p{font-size:18px; max-width:72ch}
+  #pb .sh .eyebrow{font-size:15px}
+  #pb .cintro p{font-size:17px}
+  #pb .cintro-lead{font-size:19px}
+  #pb .cin-row{grid-template-columns:170px 1fr; gap:18px; align-items:start;
+    margin-top:15px; padding-top:15px}
+  #pb .cin-q,#pb .cin-a{font-size:15.5px}
+  #pb .cintro{max-width:70ch}
+  #pb .hero h1{font-size:clamp(54px,5.8vw,74px)}
+  #pb .hero .by{font-size:21px; max-width:60ch}
+
+  #pb .ask .who button{font-size:18px}
+  #pb .ask .topic button{font-size:17px}
+  #pb .ask textarea,#pb .ask input{font-size:17px}
+  #pb .ask .go,#pb .form .go{font-size:18px}
+  #pb .ask .opt,#pb .form .opt{font-size:16px}
+  #pb .ask .opt i,#pb .form .opt i{font-size:13px}
+  #pb .ask .fine,#pb .form .fine{font-size:14.5px}
+  #pb .ask .legal,#pb .form .legal{font-size:14px}
+  /* ⚠️ 2026-09-04 — 의뢰 폼의 칸(.f)이 이 블록에서 통째로 빠져 있었습니다.
+     본문이 19px 로 커지는데 라벨은 12.5px, 입력 글씨는 14.5px 에 머물러
+     혼자 작고 답답해 보였습니다. 질문 폼(.ask)과 같은 크기로 맞춥니다. */
+  #pb .form{padding:30px 32px}
+  #pb .f{margin-bottom:16px; gap:8px}
+  #pb .f label{font-size:14.5px}
+  #pb .f label .req,#pb .pairhead .req{font-size:12.5px}
+  #pb .f input,#pb .f textarea{font-size:17px; padding:13px 15px}
+  #pb .f textarea{min-height:120px}
+  #pb .two{gap:16px}
+  #pb .kinds{padding:16px 20px 18px; margin-bottom:16px}
+  #pb .pairhead{font-size:14.5px; margin-bottom:8px}
+  #pb .pair{margin-bottom:16px}
+  #pb .kinds legend{font-size:14.5px}
+  #pb .kinds legend .hint{font-size:13.5px}
+  #pb .form .kinds .opt.etc input[type=text]{font-size:15.5px; padding:9px 12px}
+  #pb .ask .msg,#pb .form .msg{font-size:16px}
+  #pb .qtools .count{font-size:15px}
+  #pb .qfilter button{padding:10px 18px; font-size:15px}
+  #pb .qtag{font-size:13px; padding:4px 11px}
+  #pb .qempty{font-size:16px; padding:28px 24px}
+
+  #pb .qa summary{font-size:19px}
+  #pb .mark{width:30px; height:30px; font-size:14px}
+  #pb .qa .ans .body{font-size:18px}
+
+  #pb .word{min-height:150px; padding:20px 18px}
+  #pb .word b{font-size:19px}
+  #pb .word span{font-size:16px; line-height:1.65}
+  #pb .word[aria-pressed="true"] b{font-size:14px}
+
+  #pb .pho em{font-size:14px}
+  #pb .phint{font-size:15px}
+  #pb .pv .person .nm{font-size:clamp(40px,4vw,54px)}
+  #pb .pv .person > div:last-child{min-height:560px}
+  #pb .pv .tags::before{
+    content:"전문 분야"; flex:0 0 100%; margin-bottom:3px;
+    color:var(--faint); font-size:13px; font-weight:800; letter-spacing:.08em
+  }
+  #pb .pv .tags span{padding:6px 16px; font-size:16px}
+  #pb .pv .career::before{
+    content:"주요 경력"; display:block; margin-bottom:10px;
+    color:var(--faint); font-size:13px; font-weight:800; letter-spacing:.08em
+  }
+  #pb .pv .career li{font-size:clamp(17px,1.5vw,20px); line-height:1.65}
+  #pb .pv .career li i{min-width:50px; font-size:14px}
+  #pb .pv .career .none{font-size:18px}
+
+  #pb .row{padding:21px 2px}
+  #pb .row .t{font-size:19px}
+  #pb .row .meta,#pb .rows-fine{font-size:15px}
+  #pb .f label{font-size:15px}
+  #pb .f label .req,#pb .pairhead .req{font-size:13px}
+  #pb .kinds legend{font-size:15px}
+  #pb .form .kinds .opt.etc input[type=text]{font-size:16px; padding:10px 13px}
+  #pb .f input,#pb .f textarea{padding:14px 16px; font-size:17px}
+  #pb .draft{font-size:15px}
+}
+
 @media(max-width:820px){
   #pb .wrap{width:min(100% - 36px,1120px)}
-  /* 사진이 위, 글이 아래. 화면 폭을 다 채우면 사진만 보이므로 폭을 묶습니다. */
-  #pb .person{grid-template-columns:1fr; gap:18px}
-  #pb .pho{max-width:270px}
+  /* 사진이 위, 글이 아래 — 2026-09-03 밤부터 넓은 화면도 같은 짜임이라
+     여기서 다시 정할 것이 없습니다. 폭만 조금 넓힙니다. */
+  #pb .phw{width:min(240px,72%)}
+  /* 화살표가 카드를 덮으므로 좁은 화면에서는 아래 줄로 내립니다 */
+  #pb .pnav{position:static; top:auto; left:auto; right:auto}
+  #pb .pbar{gap:12px}
   #pb .words{grid-template-columns:repeat(2,1fr)}
   #pb .two{grid-template-columns:1fr}
   #pb .ask .two{grid-template-columns:1fr}
   #pb .qa summary{flex-wrap:wrap}
-  #pb .qa summary .tail{margin-left:35px; width:100%}
+  /* 좁은 화면에서는 '시민 · 참여예산위원' 딱지가 아랫줄로 내려가고, 질문 글자에
+     맞춰 35px 들여씁니다.
+     ⚠️ width:100% 로 두지 마세요 — 왼쪽 여백 35px 이 그 위에 더해져 화면이
+        딱 그만큼 가로로 넘쳤습니다(2026-09-03, 390px·768px 둘 다에서 15px).
+        아홉 화면 가운데 가로 스크롤이 생기는 곳은 여기뿐이었습니다. */
+  #pb .qa summary .tail{margin-left:35px; width:calc(100% - 35px)}
 }
+/* 움직임을 끈 사람에게는 전부 멈춥니다.
+   ⚠️ 애니메이션만 끄면 안 됩니다 — 떠오르기 전 상태가 opacity:0 이라,
+      끄는 순간 그 칸들이 영영 안 보이게 됩니다. 그래서 보이게 되돌리는
+      두 줄이 함께 있어야 합니다. */
 @media(prefers-reduced-motion:reduce){
   #pb *{transition:none!important; animation:none!important}
+  #pb.js .rv,#pb.js .rv.in,#pb.js .person .career li,#pb.js .cintro .cin-row,
+  #pb.js .hero h1,#pb.js .hero .by,#pb.js .hero .ask{opacity:1!important; transform:none!important}
+  #pb .person{opacity:1; --s:1}
+  #pb .pv{scroll-behavior:auto}
 }
 </style>
 
 
 
-<div id="pb" aria-label="참여예산 상담소">
+<div id="pb" aria-label="시민참여 상담소">
 
   <!-- ───────── 히어로 — 바로 묻게 합니다 ───────── -->
   <section class="hero"><div class="wrap">
-    <!-- 빵부스러기(홈 › 캠페인 › 참여예산 상담소)는 2026-09-03 에 뺐습니다.
+    <!-- 빵부스러기(홈 › 캠페인 › 시민참여 상담소)는 2026-09-03 에 뺐습니다.
          독립 페이지로 짓기로 해서, 캠페이너스 안쪽으로 되돌아가는 길을 두지 않습니다. -->
     <!-- 2026-09-03 — 제목과 소개문을 바꿨습니다.
          전에는 '시민도, 참여예산위원도, 기관 담당자도 묻습니다'로 시작했는데,
@@ -350,7 +1081,7 @@ body { margin: 0; background: #fff; }
          다루는 것도 참여예산 하나가 아니라 주민자치회까지 넓어졌습니다. -->
     <h1>시민참여, 물어보세요!</h1>
     <p class="by">참여예산도, 주민자치회도, 뭘 물어야 할지 모르겠는 것도.
-      시민행동 <b>시민참여정책위원회</b> 전문위원이 답합니다.</p>
+      제도와 현장을 오래 다뤄 온 <b>전문위원이 직접 답합니다</b>.</p>
 
     <form class="ask" id="pb-ask">
       <!-- 무엇에 대해 묻나요 — 고르는 줄은 이것 하나입니다.
@@ -371,21 +1102,14 @@ body { margin: 0; background: #fff; }
       <input type="hidden" id="pb-topic" value="budget">
       <label class="sr-only" for="pb-q" hidden>궁금한 것</label>
       <textarea id="pb-q" placeholder="궁금한 것을 편하게 적어 주세요. 짧아도 괜찮습니다."></textarea>
-      <!-- 이름 · 휴대전화 · 이메일 셋 다 받습니다(2026-09-03 사용자 지시).
-           회원 확대가 이 페이지의 목적 중 하나라, 답장 주소만 받던 것을 바꿨습니다.
-           ⚠️ 그만큼 개인정보 수집 항목이 늘었습니다. 아래 동의 칸이 그래서 있습니다. -->
-      <div class="two">
-        <div><label class="sr-only" for="pb-name" hidden>이름</label>
-          <input type="text" id="pb-name" placeholder="이름" autocomplete="name"></div>
-        <!-- 휴대전화는 원래도 필수가 아니었는데 화면에 표시가 없어서, 방문자는
-             다 필수인 줄 알고 적었습니다. 2026-09-03 에 '(선택)'을 붙였습니다.
-             개인정보보호법의 최소수집 때문입니다 — 이 폼의 목적은 '답을 알려
-             드리기'고 거기에는 이메일이면 됩니다. 휴대전화를 받는 실제 이유는
-             회원 확대인데, 그것은 다른 목적이라 강제할 근거가 없습니다. -->
-        <div><label class="sr-only" for="pb-phone" hidden>휴대전화 (선택)</label>
-          <input type="tel" id="pb-phone" placeholder="휴대전화 (선택)" autocomplete="tel"
-                 inputmode="numeric" pattern="[0-9\-]*"></div>
-      </div>
+      <!-- 2026-09-04 — **휴대전화를 걷었습니다**(사용자 지시).
+           남는 것은 이름과 이메일 둘입니다. 답을 알려 드리는 데는 이메일이면 되고,
+           휴대전화를 받던 실제 이유(회원 확대)는 이 폼의 목적이 아니었습니다.
+           휴대전화는 교육·컨설팅 의뢰 폼으로 옮겼습니다 — 거기는 기관 담당자라
+           전화로 협의할 일이 실제로 생깁니다.
+           ⚠️ 되살리려면 아래 개인정보 고지의 '수집 항목'도 함께 고쳐야 합니다. -->
+      <div><label class="sr-only" for="pb-name" hidden>이름</label>
+        <input type="text" id="pb-name" placeholder="이름" autocomplete="name"></div>
       <label class="sr-only" for="pb-mail" hidden>답이 올라오면 알려 드릴 이메일</label>
       <input type="email" id="pb-mail" placeholder="답 올라오면 알려 드릴 이메일" autocomplete="email">
       <!-- 동의는 둘로 나눕니다(2026-09-03).
@@ -405,22 +1129,36 @@ body { margin: 0; background: #fff; }
            소식 받기 쪽은 기간이 아니라 수신 거부 시점까지라, 따로 적었습니다. -->
       <label class="opt"><input type="checkbox" id="pb-agree" required>
         <span>개인정보 수집·이용에 동의합니다 <i class="must">필수</i></span></label>
+      <!-- 2026-09-07 — 폼 밖에 흩어져 있던 잔글씨 셋(누가 읽나 · 답이 어디 올라가나 ·
+           개인정보 고지)을 동의 칸 하나로 모았습니다. 사용자: "밖에 있으니 안 이뻐".
+           ⚠️ 접힌 채로도 보여야 하는 넷은 <summary> 안에 남깁니다 — 수집 항목 ·
+              이용 목적 · 보유기간 · 동의를 안 해도 된다는 말. 동의를 받는 자리라
+              법이 알리라고 하는 것들입니다. 요약 줄에서 빼지 마세요.
+           ⚠️ <details> 를 <label> 안에 넣지 마세요 — 요약 줄을 누를 때마다
+              체크박스가 켜졌다 꺼집니다. -->
+      <details class="fine legal">
+        <!-- 2026-09-07 — 요약 줄을 딱지 한 줄로 줄였습니다(사용자: "너무 길다").
+             ⚠️ 접기 전에 보이던 넷(수집 항목 · 이용 목적 · 보유기간 · 동의 임의성)이
+                이제 펼쳐야 보입니다. 그래서 그 넷을 펼친 칸 **맨 위**에 모아 두었습니다 —
+                아래 차례를 흩뜨리지 마세요. -->
+        <summary>개인정보 수집·이용 동의 내용<span class="more"></span></summary>
+        <div class="legal-rest">
+          <b>이름 · 이메일</b>을 받아 답변과 알림에만 쓰고 <b>5년</b> 뒤 지웁니다.
+          동의하지 않아도 되지만, 그러면 답을 보내 드릴 길이 없습니다.<br>
+          <b>누가 읽나</b> <b>함께하는 시민행동</b> 시민참여정책위원회 전문위원이 읽고 답합니다.<br>
+          <b>답</b> 이 페이지 아래 '오간 질문'에 올라갑니다 — 보통 5일 안입니다.
+          올라오면 알려 드립니다. 질문 내용만 올라가고 이름·연락처는 화면에 올리지 않습니다.<br>
+          <b>보유기간</b> 수집일로부터 5년
+          (소식 받기에 동의하신 경우, 수신을 그만두실 때까지)<br>
+          <b>보관</b> 받은 내용은 구글 스프레드시트(Google LLC)에 저장합니다.
+          처리 주체는 <b>함께하는 시민행동</b>, 개인정보관리책임자는 정남진 사무처장입니다.
+          자세한 것은 <a href="https://action.or.kr/8" target="_blank" rel="noopener">개인정보처리방침</a>에 있습니다.</div>
+      </details>
       <label class="opt"><input type="checkbox" id="pb-news">
         <span>함께하는 시민행동 소식도 받겠습니다 <i>선택</i></span></label>
       <!-- 허니팟. 사람에게는 안 보이고 자동 프로그램만 채웁니다(#pb .hp 규칙). -->
       <input class="hp" type="text" id="pb-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
       <button type="submit" class="go">질문 보내기</button>
-      <p class="fine"><b>답은 이 페이지 아래 '오간 질문'에 올라갑니다</b> — 보통 5일 안입니다.
-        올라오면 알려 드립니다. 질문 내용만 올라가고 <b>이름·연락처는 화면에 올리지 않습니다.</b></p>
-      <p class="fine legal">
-        <b>수집 항목</b> 이름 · 휴대전화 · 이메일 &nbsp;
-        <b>이용 목적</b> 질문에 답하고, 답이 올라온 것을 알려 드리기 위해 &nbsp;
-        <b>보유기간</b> 수집일로부터 5년
-        (소식 받기에 동의하신 경우, 수신을 그만두실 때까지)<br>
-        <b>보관</b> 받은 내용은 구글 스프레드시트(Google LLC)에 저장합니다.
-        처리 주체는 <b>함께하는 시민행동</b>, 개인정보관리책임자는 정남진 사무처장입니다.
-        동의하지 않아도 되지만, 그러면 답을 보내 드릴 길이 없습니다.
-        자세한 것은 <a href="https://action.or.kr/8" target="_blank" rel="noopener">개인정보처리방침</a>에 있습니다.</p>
       <p class="msg" id="pb-msg" role="status"></p>
     </form>
   </div></section>
@@ -446,24 +1184,31 @@ body { margin: 0; background: #fff; }
             정렬 버튼과 함께 되살리세요. -->
     <section class="sec"><div class="sh">
       <h2>오간 질문</h2>
-      <p>같은 걸 궁금해한 사람이 이미 있었습니다.</p>
     </div>
 
-      <!-- 이 줄에 버튼이 둘 있었는데 2026-09-03 에 다 뺐습니다.
-           '전체'는 갈래 거르기를 되돌리는 버튼이라 거르기와 함께 사라졌고,
-           '궁금해요 많은 순'은 셀 수 있는 숫자가 없어서 뺐습니다. -->
+      <!-- 2026-09-04 — 주제로 거르는 줄을 놓았습니다.
+           ⚠️ data-filter 값은 히어로 폼의 주제 버튼(data-topic)과 **같은 말**을
+              써야 합니다 — budget · jachi · policy. 한쪽만 바꾸면 거르기가
+              아무것도 못 찾고 늘 '없습니다'만 나옵니다.
+           ('궁금해요 많은 순'은 셀 숫자가 없어 2026-09-03 에 뺐습니다.) -->
       <div class="qtools">
+        <div class="qfilter" role="group" aria-label="주제로 거르기">
+          <button type="button" data-filter="all" aria-pressed="true">전체</button>
+          <button type="button" data-filter="budget" aria-pressed="false">참여예산</button>
+          <button type="button" data-filter="jachi" aria-pressed="false">주민자치회</button>
+          <button type="button" data-filter="policy" aria-pressed="false">시민참여정책</button>
+        </div>
         <span class="count" id="pb-count"></span>
       </div>
 
       <div class="qa" id="pb-qa">
 
-        <details class="item" data-who="citizen" data-q="town">
+        <details class="item" data-topic="budget" data-q="town">
           <summary>
             <span class="mark q" aria-hidden="true">Q</span>
             <span>우리 동네도 참여예산을 하나요?</span>
             <span class="tail">
-              <span class="whotag">시민</span>            </span>
+              <span class="qtag">참여예산</span>            </span>
           </summary>
           <div class="ans">
             <span class="mark a" aria-hidden="true">A</span>
@@ -473,12 +1218,12 @@ body { margin: 0; background: #fff; }
           </div>
         </details>
 
-        <details class="item" data-who="member" data-q="first">
+        <details class="item" data-topic="budget" data-q="first">
           <summary>
             <span class="mark q" aria-hidden="true">Q</span>
             <span>위원이 됐는데 첫 회의에서 뭘 봐야 하나요?</span>
             <span class="tail">
-              <span class="whotag">참여예산위원</span>            </span>
+              <span class="qtag">참여예산</span>            </span>
           </summary>
           <div class="ans">
             <span class="mark a" aria-hidden="true">A</span>
@@ -488,12 +1233,12 @@ body { margin: 0; background: #fff; }
           </div>
         </details>
 
-        <details class="item" data-who="citizen" data-q="reject">
+        <details class="item" data-topic="budget" data-q="reject">
           <summary>
             <span class="mark q" aria-hidden="true">Q</span>
             <span>제안이 '부적합'으로 반려됐는데 끝인가요?</span>
             <span class="tail">
-              <span class="whotag">시민</span>            </span>
+              <span class="qtag">참여예산</span>            </span>
           </summary>
           <div class="ans">
             <span class="mark a" aria-hidden="true">A</span>
@@ -504,28 +1249,29 @@ body { margin: 0; background: #fff; }
         </details>
 
       </div>
+      <!-- 고른 주제에 문답이 하나도 없을 때. 스크립트가 켜고 끕니다. -->
+      <p class="qempty" id="pb-qempty" hidden>고른 주제로 오간 질문이 아직 없습니다.
+        맨 위 칸에서 물어봐 주세요 — 답이 여기 올라옵니다.</p>
 
       <!-- '답을 기다리는 질문' 칸은 2026-09-03 에 뺐습니다(사용자 결정).
            접수가 잠긴 동안에는 실제 대기 질문이 있을 수 없어 예시밖에 못 놓습니다.
            폼이 열리면 되살릴 만한 칸입니다 — 그때는 예시가 아니라 진짜가 들어갑니다. -->
     </section>
 
-    <!-- ───────── 더한 것 3 — 참여예산 말 뜻 ───────── -->
+    <!-- ───────── 더한 것 3 — 시민참여 개념 정의 ───────── -->
     <section class="sec"><div class="sh">
-      <h2>참여예산 말 뜻</h2>
-      <p>못 묻는 가장 큰 이유는 몰라서가 아니라 <b>용어를 몰라서</b>입니다. 눌러서 뒤집어 보세요.</p>
+      <h2>시민참여 개념 정의</h2>
     </div>
       <div class="words">
-        <button type="button" class="word" aria-pressed="false"><b>주민참여예산</b><span>지자체가 예산을 짤 때 주민이 직접 끼어드는 제도. 지방재정법 제39조에 근거가 있습니다.</span></button>
-        <button type="button" class="word" aria-pressed="false"><b>제안사업</b><span>주민이 "이걸 해 달라"고 낸 사업. 심사를 거쳐 예산에 오릅니다.</span></button>
-        <button type="button" class="word" aria-pressed="false"><b>참여예산위원</b><span>주민 가운데 뽑혀 제안을 심사하고 우선순위를 정하는 사람.</span></button>
-        <button type="button" class="word" aria-pressed="false"><b>운영조례</b><span>그 지자체가 참여예산을 어떻게 굴릴지 정해 둔 규칙. 총액·위원 수·절차가 여기 있습니다.</span></button>
-        <button type="button" class="word" aria-pressed="false"><b>지역회의</b><span>동이나 권역 단위로 모여 그 동네 제안을 먼저 추려 내는 자리.</span></button>
-        <button type="button" class="word" aria-pressed="false"><b>총회 · 한마당</b><span>제안들의 최종 우선순위를 정하는 자리. 지역마다 이름이 다릅니다.</span></button>
-        <button type="button" class="word" aria-pressed="false"><b>숙의</b><span>표만 던지지 않고, 왜 그게 필요한지 따져 본 뒤에 정하는 것.</span></button>
-        <button type="button" class="word" aria-pressed="false"><b>반영률</b><span>낸 제안 가운데 실제로 예산에 오른 비율. 그 지역 참여예산이 형식적인지 아닌지를 가늠하는 값입니다.</span></button>
+        <button type="button" class="word" aria-pressed="false"><b>시민참여</b><span>시민이 권리 및 공공의 이익 실현, 사회적 가치 증진 등을 위하여 다양한 영역에서 자율적으로 참여하는 행위</span></button>
+        <button type="button" class="word" aria-pressed="false"><b>주민직접참여제도</b><span>주민조례청구, 주민소환, 주민투표, 주민감사청구, 주민소송, 주민참여예산제도 등 주민이 직접 주권을 행사하는 방식의 제도</span></button>
+        <button type="button" class="word" aria-pressed="false"><b>주민참여예산</b><span>지방재정법 제39조에 따라 지자체 예산 과정에 주민의 참여를 보장하는 제도</span></button>
+        <button type="button" class="word" aria-pressed="false"><b>주민참여예산기구</b><span>지자체 예산과정 전반에 주민의 의견을 반영하기 위해 설치하는 기구</span></button>
+        <button type="button" class="word" aria-pressed="false"><b>참여예산 운영계획</b><span>지자체가 참여예산 기구 현황, 운영 절차, 규모 등을 명시한 연도별 계획</span></button>
+        <button type="button" class="word" aria-pressed="false"><b>참여예산 지역회의</b><span>읍면동 단위에서 지역 주민의 의제를 발굴·숙의하는 기구, 주민자치회가 대행하는 경우도 있음</span></button>
+        <button type="button" class="word" aria-pressed="false"><b>제안사업 반영률</b><span>주민이 제안한 사업 가운데 최종적으로 예산에 반영된 사업의 비율</span></button>
+        <button type="button" class="word" aria-pressed="false"><b>주민의견서</b><span>참여예산제도 운영결과 및 일반예산에 관한 주민의견을 담은 자료로, 지자체 예산안 제출 시 의무적으로 첨부해야 함</span></button>
       </div>
-      <p class="words-fine">낱말을 더하려면 위 카드 하나를 복사해 앞면·뒷면 글자만 바꾸면 됩니다.</p>
     </section>
 
     <!-- ───────── 시민참여정책위원회 ─────────
@@ -545,6 +1291,11 @@ body { margin: 0; background: #fff; }
            3. <div class="pho" …>김<em>사진 자리</em></div> 를
               <img class="pho" src="img/이름.webp" alt="김민철" loading="lazy" decoding="async">
               로 통째로 바꿉니다. 크기·비율·잘림은 .pho 규칙이 둘 다 맡습니다.
+              ⚠️ 감싸고 있는 <div class="phw"> 와 그 안의 .shine · .spk 는 건드리지
+                 마세요 — 도는 테두리 · 빛 스침 · 반짝임이 거기 붙어 있습니다.
+                 바꾸는 것은 .pho 한 줄뿐입니다.
+              ⚠️ 사진이 넷 다 차면 위 h2 의 <span class="tbd">사진 준비 중</span> 도
+                 지우세요.
 
            주소가 상대경로(img/…)인 이유 — 사진은 participatory-budget 저장소 안에
            있고, 구운 index.html 과 나란히 배포됩니다. 그래서 pb.action.or.kr 에서는
@@ -553,14 +1304,62 @@ body { margin: 0; background: #fff; }
            절대 주소로 바꾸면 됩니다 — 하단 센터 로고들이 그렇게 돼 있습니다.
 
          ⚠️ 오지은 위원은 이력을 아직 못 받았습니다. 지어내지 않고 비워 뒀습니다. -->
-    <section class="sec"><div class="sh">
-      <h2>시민참여정책위원회 <span class="tbd">사진 준비 중</span></h2>
-      <p>제도와 현장, 교육을 오래 오간 전문위원이 직접 답합니다.</p>
+    <!-- 2026-09-04 — 소속을 여기서 처음 밝힙니다.
+         첫 화면에서 단체 이름을 앞세우면 "이게 뭐하는 곳이야?" 가 먼저 나옵니다.
+         얼굴 넷 바로 위에서 밝히면 추상적인 단체가 아니라 이 사람들의 소속으로
+         읽혀서 거부감이 덜합니다. h2 를 '함께하는 시민행동 시민참여정책위원회'
+         한 줄로 붙이지 않은 것도 같은 이유입니다 — 18자라 좁은 화면에서 두 줄로
+         꺾이고, 조직 이름 둘이 겹쳐 무거워집니다. 눈꼬리로 갈라 둡니다. -->
+    <section class="sec people-sec" id="committee"><div class="sh">
+      <p class="eyebrow">함께하는 시민행동</p>
+      <h2>시민참여정책위원회</h2>
     </div>
+
+      <!-- 위원회 소개 — 2026-09-04. **자리만 잡아 둔 칸입니다.**
+           사용자: "소개 글은 아직 없어. 자리만 만들어놔. 나중에 내용줄게".
+           ⚠️ 첫 줄(.cintro-lead)만 확인된 사실입니다 — 위원회가 시민행동 안에
+              있다는 것. 아래 물음 셋은 **빈 자리**입니다. 지어내지 마세요.
+              글을 받으면 그 줄의 .cin-a 속을 갈아 끼우고 '준비 중' 딱지를 걷습니다.
+              물음 차례는 '왜 생겼나 → 무슨 일을 해 왔나 → 왜 상담을 여나' 입니다.
+              생겨난 까닭 · 해 온 일 · 지금 여는 까닭 순서라야 읽는 사람이
+              따라옵니다(2026-09-04 사용자가 고른 세 가지). -->
+      <div class="cintro">
+        <p class="cintro-lead"><b>시민참여정책위원회</b>는
+          <b>함께하는 시민행동</b> 안에 있는 기구입니다.</p>
+        <!-- 2026-09-07 사용자 지시: "위원회 글은 없이 일단 갈거야."
+             물음 셋을 화면에서 뺐습니다 — **지운 것이 아니라 주석입니다.**
+             글을 받으면 아래 주석만 벗기고 .cin-a 속을 갈아 끼우세요.
+             확인된 첫 줄(.cintro-lead)은 그대로 둡니다.
+        <div class="cin-row">
+          <p class="cin-q">왜 생겼나</p>
+          <p class="cin-a"><span class="tbd">준비 중</span>
+            언제, 어떤 필요 때문에 만들어졌는지 한두 줄.</p>
+        </div>
+        <div class="cin-row">
+          <p class="cin-q">무슨 일을 해 왔나</p>
+          <p class="cin-a"><span class="tbd">준비 중</span>
+            구체적인 사례 하나 — 어느 지자체의 무엇을 했는지.</p>
+        </div>
+        <div class="cin-row">
+          <p class="cin-q">왜 상담을 여나</p>
+          <p class="cin-a"><span class="tbd">준비 중</span>
+            이 창구가 찾아온 사람에게 무슨 뜻인지 한두 줄.</p>
+        </div>
+        -->
+      </div>
+      <!-- 카루셀. 넘기는 일은 .pv 의 가로 스크롤 + 스냅이 하고,
+           화살표·점·기울임만 스크립트가 얹습니다(스크립트가 막혀도 넘어갑니다). -->
       <div class="people">
+       <div class="pv" id="pb-pv" tabindex="0" role="region"
+            aria-label="시민참여정책위원회 전문위원 — 좌우로 넘겨 보세요">
 
         <article class="person">
-          <div class="pho" aria-hidden="true">김<em>사진 자리</em></div>
+          <div class="phw">
+            <img class="pho" src="img/kimmincheol.webp" alt="김민철" loading="lazy" decoding="async">
+            <span class="ring" aria-hidden="true"></span>
+            <span class="shine" aria-hidden="true"></span>
+            <span class="spk" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          </div>
           <div>
             <b class="nm">김민철</b>
             <div class="tags"><span>참여예산</span><span>지역회의</span></div>
@@ -571,11 +1370,18 @@ body { margin: 0; background: #fff; }
               <li><i>전</i>서울시 자치구 주민참여예산 운영 평가위원</li>
               <li><i>전</i>서울시 동(洞) 지역회의 시범사업 운영 컨설턴트</li>
             </ul>
+            <!-- 넓은 화면(카드 넷)에서만 보입니다. 누르면 창이 열립니다. -->
+            <span class="more" aria-hidden="true">이력 보기 →</span>
           </div>
         </article>
 
         <article class="person">
-          <div class="pho" aria-hidden="true">정<em>사진 자리</em></div>
+          <div class="phw">
+            <img class="pho" src="img/jeongnamjin.webp" alt="정남진" loading="lazy" decoding="async">
+            <span class="ring" aria-hidden="true"></span>
+            <span class="shine" aria-hidden="true"></span>
+            <span class="spk" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          </div>
           <div>
             <b class="nm">정남진</b>
             <div class="tags"><span>참여예산</span><span>청년 · 청소년 참여기구</span></div>
@@ -585,11 +1391,18 @@ body { margin: 0; background: #fff; }
               <li><i>전</i>서울시 서대문구 참여예산 지원단</li>
               <li><i>전</i>서울시 청년자율예산 자치구 청년정책 거버넌스 활성화 TF</li>
             </ul>
+            <!-- 넓은 화면(카드 넷)에서만 보입니다. 누르면 창이 열립니다. -->
+            <span class="more" aria-hidden="true">이력 보기 →</span>
           </div>
         </article>
 
         <article class="person">
-          <div class="pho" aria-hidden="true">최<em>사진 자리</em></div>
+          <div class="phw">
+            <img class="pho" src="img/choiinwook.webp" alt="최인욱" loading="lazy" decoding="async">
+            <span class="ring" aria-hidden="true"></span>
+            <span class="shine" aria-hidden="true"></span>
+            <span class="spk" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          </div>
           <div>
             <b class="nm">최인욱</b>
             <div class="tags"><span>참여예산</span><span>SDGs</span><span>공무원 교육</span></div>
@@ -599,21 +1412,58 @@ body { margin: 0; background: #fff; }
               <li><i>전</i>행정안전부 주민참여예산제 컨설턴트</li>
               <li><i>전</i>좋은예산센터 사무국장</li>
             </ul>
+            <!-- 넓은 화면(카드 넷)에서만 보입니다. 누르면 창이 열립니다. -->
+            <span class="more" aria-hidden="true">이력 보기 →</span>
           </div>
         </article>
 
         <article class="person">
-          <img class="pho" src="img/ohjieun.webp" alt="오지은" loading="lazy" decoding="async">
+          <div class="phw">
+            <img class="pho" src="img/ohjieun.webp" alt="오지은" loading="lazy" decoding="async">
+            <span class="ring" aria-hidden="true"></span>
+            <span class="shine" aria-hidden="true"></span>
+            <span class="spk" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          </div>
           <div>
             <b class="nm">오지은</b>
             <div class="tags"><span>주민자치회</span></div>
             <ul class="career">
               <li class="none">이력을 받는 대로 채웁니다.</li>
             </ul>
+            <!-- 넓은 화면(카드 넷)에서만 보입니다. 누르면 창이 열립니다.
+                 ⚠️ 오지은 위원은 이력을 아직 못 받아서 '이력 보기'라고 적지 않습니다 —
+                    눌렀는데 "받는 대로 채웁니다" 한 줄만 나오면 속은 기분이 듭니다.
+                    이력이 채워지면 다른 셋과 같은 '이력 보기 →' 로 바꾸세요. -->
+            <span class="more" aria-hidden="true">크게 보기 →</span>
           </div>
         </article>
 
+       </div>
+
+       <!-- 넘기는 장치. 스크립트가 켭니다 —
+            그래서 처음에는 숨겨 두지 않고, 스크립트가 못 돌면 그냥 안 눌리는
+            버튼으로 남습니다(가로 스크롤은 그때도 됩니다). -->
+       <div class="pbar">
+         <button type="button" class="pnav prev" aria-label="이전 전문위원">‹</button>
+         <span class="pcount" id="pb-pcount"></span>
+         <button type="button" class="pnav next" aria-label="다음 전문위원">›</button>
+       </div>
       </div>
+
+      <!-- ── 전문위원 창 ──
+           2026-09-03. 넓은 화면에서 카드를 누르면 열립니다.
+           ⚠️ 안은 비어 있습니다 — 스크립트가 눌린 카드의 속을 그대로 옮겨 담습니다.
+              이름·분야·이력을 여기에 또 적지 마세요. 두 벌이 되면 갈라집니다. -->
+      <dialog class="pmodal" id="pb-pmodal" aria-label="전문위원 소개">
+        <div class="pmodal-bar">
+          <button type="button" class="pmodal-prev" aria-label="이전 전문위원">‹</button>
+          <button type="button" class="pmodal-next" aria-label="다음 전문위원">›</button>
+          <button type="button" class="pmodal-x" aria-label="닫기">✕</button>
+        </div>
+        <div class="pmodal-in" id="pb-pmodal-in"></div>
+      </dialog>
+
+      <p class="phint">전문위원이 3초마다 순서대로 바뀝니다. 화살표로 직접 넘길 수도 있습니다.</p>
     </section>
 
     <!-- ───────── 전문위원의 글 ─────────
@@ -622,9 +1472,12 @@ body { margin: 0; background: #fff; }
             읽을 글이 있는 것처럼 보였습니다. 링크를 걷어내고 자리 표시로 바꿨습니다.
             실제 글 주소가 생기면 <div class="row is-tbd"> 를 <a class="row" href="…"> 로
             되돌리세요. -->
+    <!-- 2026-09-07 — 글 없이 먼저 엽니다(사용자: "위원회 글은 없이 일단 갈거야").
+         넷 다 제목·필자·날짜가 지어낸 예시라 공개 화면에 내보낼 수 없었습니다.
+         **지운 것이 아니라 주석입니다.** 실제 글을 받으면 주석을 벗기고
+         <div class="row is-tbd"> 를 <a class="row" href="…"> 로 되돌리세요.
     <section class="sec"><div class="sh">
       <h2>전문위원의 글 <span class="tbd">전부 예시</span></h2>
-      <p>문답으로 다 못 담는 것은 글로 풉니다.</p>
     </div>
       <div class="rows">
         <div class="row is-tbd"><span class="t">참여예산 총액은 누가 정하나</span><span class="meta">ㅇㅇㅇ · 00.00</span></div>
@@ -634,41 +1487,116 @@ body { margin: 0; background: #fff; }
       </div>
       <p class="rows-fine">아직 실린 글이 없습니다. 위 넷은 자리 표시입니다.</p>
     </section>
+    -->
 
-    <!-- ───────── 교육 · 컨설팅 의뢰 ───────── -->
-    <section class="sec"><div class="sh">
+    <!-- ───────── 교육 · 컨설팅 의뢰 ─────────
+         is-narrow — 폼을 가운데로 좁히면서 제목도 같이 좁혔습니다(2026-09-04).
+         제목만 1120px 로 남으면 폼과 왼쪽 끝이 어긋나 따로 노는 것처럼 보입니다. -->
+    <section class="sec is-narrow"><div class="sh">
       <h2>교육 · 컨설팅 의뢰</h2>
       <!-- 비용은 여기서 밝히지 않습니다(2026-09-03 사용자 결정).
            의뢰를 받은 뒤 따로 협의할 일이라, 화면에는 올리지 않습니다. -->
-      <p>지자체·중간지원조직 담당자를 위한 칸입니다.
-        시민행동 시민참여정책위원회가 맡습니다.</p>
     </div>
       <form class="form" id="pb-order">
+        <!-- 2026-09-04 — 사용자가 준 기존 문의 폼 구성으로 다시 지었습니다.
+             단체명 · 담당자 성함 · 휴대폰 · 행정번호 · 의뢰 유형 · 상세 내용.
+             ⚠️ id 는 옛 이름(pb-o1…)을 그대로 씁니다 — Code.gs 가 이 id 로 읽습니다.
+                이름을 바꾸려면 양쪽을 같이 고쳐야 합니다.
+             ⚠️ '시기·인원' 칸은 없앴습니다(기존 폼에 없습니다). 상세 내용에 적힙니다. -->
         <div class="two">
-          <div class="f"><label for="pb-o1">기관</label><input type="text" id="pb-o1"></div>
-          <div class="f"><label for="pb-o2">담당자</label><input type="text" id="pb-o2"></div>
+          <div class="f"><label for="pb-o1">단체명 <i class="req">필수</i></label>
+            <input type="text" id="pb-o1" required></div>
+          <div class="f"><label for="pb-o2">담당자 성함 <i class="req">필수</i></label>
+            <input type="text" id="pb-o2" required></div>
         </div>
-        <div class="two">
-          <div class="f"><label for="pb-o3">이메일</label><input type="email" id="pb-o3"></div>
-          <div class="f"><label for="pb-o4">시기 · 인원</label><input type="text" id="pb-o4"></div>
+        <!-- 2026-09-04 — 휴대폰과 행정번호는 **둘 중 하나**만 적으면 됩니다(사용자 지시).
+             전에는 휴대폰만 required 였습니다 — 행정번호로 연락받겠다는 담당자가
+             쓰지도 않을 휴대폰을 적어야 넘어갈 수 있었습니다.
+             ⚠️ 그래서 둘 다 required 를 떼고, 아래 '연락처 택일' 스크립트가
+                둘 다 비었을 때만 막습니다. 한쪽에 required 를 도로 붙이지 마세요. -->
+        <div class="pair">
+          <div class="pairhead">연락처 <i class="req">둘 중 하나</i></div>
+          <div class="two">
+            <div class="f"><label for="pb-o6">휴대폰</label>
+              <input type="tel" id="pb-o6" autocomplete="tel"
+                     inputmode="numeric" pattern="[0-9\-]*" placeholder="010-0000-0000"></div>
+            <div class="f"><label for="pb-o7">행정번호</label>
+              <input type="tel" id="pb-o7" inputmode="numeric" pattern="[0-9\-]*"
+                     placeholder="02-000-0000"></div>
+          </div>
         </div>
-        <div class="f"><label for="pb-o5">필요한 것</label><textarea id="pb-o5"></textarea></div>
+        <div class="f"><label for="pb-o3">이메일</label>
+          <input type="email" id="pb-o3" autocomplete="email"></div>
+
+        <!-- 의뢰 유형. 여러 개 고를 수 있습니다.
+             ⚠️ 체크박스는 값이 아니라 켜짐/꺼짐으로 넘어갑니다 — 사람이 읽는 말로
+                바꾸는 것은 Code.gs 의 KINDS 가 합니다. 여기 문구를 고치면 거기도 고치세요. -->
+        <fieldset class="kinds">
+          <legend>어떤 것이 필요하신가요 <span class="hint">여러 개 고를 수 있습니다</span></legend>
+          <!-- 2026-09-04 — 여섯을 감싸는 .opts 를 넣었습니다. 넓은 화면에서 두 칸으로
+               접히는 자리입니다(#pb .form .kinds .opts). fieldset 에 직접 grid 를 걸면
+               legend 까지 칸으로 들어가 자리가 어그러집니다 — 그래서 한 겹 더 씁니다. -->
+          <div class="opts">
+            <label class="opt"><input type="checkbox" id="pb-k1"><span>단기 강의·교육 진행</span></label>
+            <label class="opt"><input type="checkbox" id="pb-k2"><span>교육 프로그램 운영</span></label>
+            <label class="opt"><input type="checkbox" id="pb-k3"><span>사업 기획 및 운영 지원</span></label>
+            <label class="opt"><input type="checkbox" id="pb-k4"><span>제도 및 운영 컨설팅</span></label>
+            <label class="opt"><input type="checkbox" id="pb-k5"><span>연구 및 성과 분석</span></label>
+            <label class="opt etc"><input type="checkbox" id="pb-k6"><span>기타</span>
+              <input type="text" id="pb-ketc" placeholder="직접 입력" aria-label="기타 — 직접 입력"></label>
+          </div>
+        </fieldset>
+
+        <div class="f"><label for="pb-o5">상세 문의 내용 <i class="req">필수</i></label>
+          <textarea id="pb-o5" required placeholder="어떤 자리인지, 언제쯤인지, 몇 분이 오시는지 적어 주시면 협의가 빠릅니다."></textarea></div>
+        <!-- 참고 자료 첨부 (2026-09-04).
+             ⚠️ 하루 전의 '정적 페이지라 올릴 곳이 없다'는 메모는 틀렸습니다 —
+                이 사이트 서버에 못 올린다는 뜻이었는데, 접수처가 구글 Apps Script 라
+                거기서 받아 드라이브에 넣으면 됩니다.
+
+             막는 것 셋(브라우저에서 한 번, 받는 쪽에서 또 한 번):
+               1. 개수  — 3개까지
+               2. 크기  — 한 개 8MB, 모두 합쳐 10MB
+               3. 확장자 — 아래 PB_OK_EXT 에 적힌 것만
+             ⚠️ 접수 주소가 페이지에 박혀 있어 화면 검사는 우회할 수 있습니다.
+                **받는 쪽 Code.gs 의 검사가 진짜입니다** — 거기 값을 함께 고치세요. -->
+        <div class="f files">
+          <label for="pb-ofile">참고 자료</label>
+          <input type="file" id="pb-ofile" multiple
+                 accept=".hwp,.hwpx,.pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.jpg,.jpeg,.png,.gif">
+          <p class="fine filehint">한글 · 워드 · 엑셀 · PPT · PDF · 사진을 올릴 수 있습니다.
+            <b>3개까지, 한 개 8MB, 모두 합쳐 10MB.</b></p>
+        </div>
+        <p class="fine">더 크거나 다른 형식이면
+          <a href="mailto:action@action.or.kr">action@action.or.kr</a> 로 보내 주세요.</p>
         <!-- 2026-09-03 — 동의 칸과 개인정보 고지를 이 폼에도 넣었습니다.
              기관 의뢰라도 '담당자 이름 · 이메일'은 개인의 정보입니다. 질문 폼과 같은
              근거(개인정보처리방침 1항)로 받는 것이라 절차도 같아야 합니다.
              이 칸 없이 접수를 열면 동의 없이 연락처를 받게 됩니다. -->
         <label class="opt"><input type="checkbox" id="pb-oagree" required>
           <span>개인정보 수집·이용에 동의합니다 <i class="must">필수</i></span></label>
+        <!-- 2026-09-07 — 질문 폼과 같이, 밖에 흩어져 있던 '누가 맡나'를 고지 안으로
+             넣었습니다(사용자 지시). 접힌 채로도 보여야 하는 넷은 <summary> 에 남습니다. -->
+        <details class="fine legal">
+          <!-- 2026-09-07 — 질문 폼과 같이 요약 줄을 딱지 한 줄로 줄였습니다. -->
+          <summary>개인정보 수집·이용 동의 내용<span class="more"></span></summary>
+          <div class="legal-rest">
+            <b>단체명 · 담당자 연락처</b>를 받아 의뢰를 협의하는 데에만 쓰고
+            <b>5년</b> 뒤 지웁니다. 동의하지 않아도 되지만, 그러면 연락을 드릴 길이
+            없습니다.<br>
+            <b>누가 맡나</b> 지자체·중간지원조직 담당자를 위한 칸입니다.
+            <b>함께하는 시민행동</b> 시민참여정책위원회가 맡습니다.<br>
+            <b>수집 항목</b> 단체명 · 담당자 이름 · 휴대폰 · 행정번호 · 이메일 ·
+            올려 주신 참고 자료 &nbsp;
+            <b>보유기간</b> 수집일로부터 5년<br>
+            <b>보관</b> 받은 내용은 구글 스프레드시트에, 올려 주신 자료는
+            구글 드라이브(Google LLC)에 저장합니다.
+            처리 주체는 <b>함께하는 시민행동</b>, 개인정보관리책임자는 정남진 사무처장입니다.
+            자세한 것은 <a href="https://action.or.kr/8" target="_blank" rel="noopener">개인정보처리방침</a>에 있습니다.</div>
+        </details>
         <!-- 허니팟. 질문 폼과 같습니다(#pb .hp 규칙). -->
         <input class="hp" type="text" id="pb-ohp" tabindex="-1" autocomplete="off" aria-hidden="true">
         <button type="submit" class="go">의뢰 보내기</button>
-        <p class="fine legal">
-          <b>수집 항목</b> 기관 · 담당자 이름 · 이메일 &nbsp;
-          <b>이용 목적</b> 의뢰 내용을 확인하고 진행을 협의하기 위해 &nbsp;
-          <b>보유기간</b> 수집일로부터 5년<br>
-          <b>보관</b> 받은 내용은 구글 스프레드시트(Google LLC)에 저장합니다.
-          처리 주체는 <b>함께하는 시민행동</b>, 개인정보관리책임자는 정남진 사무처장입니다.
-          자세한 것은 <a href="https://action.or.kr/8" target="_blank" rel="noopener">개인정보처리방침</a>에 있습니다.</p>
         <p class="msg" id="pb-omsg" role="status"></p>
       </form>
     </section>
@@ -711,7 +1639,7 @@ body { margin: 0; background: #fff; }
    아래 주소는 build.py 의 PB_ENDPOINT 에서 옵니다. **비어 있으면 잠긴 채입니다** —
    웹앱을 배포한 뒤 그 값을 채우면 두 폼이 함께 열립니다(intake/README.md).
    ══════════════════════════════════════════════════════════════ */
-var PB_ENDPOINT = 'https://script.google.com/macros/s/AKfycbw8E9OXVIPl5l94AQDSQxQec_AoKMug8fqTu74rpC_n6HmwqBPx8gaSz7-CiKxuIJDo/exec';
+var PB_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwq7mMwn0lgthl-aIj7UaDtR-yW1xSaF_ZBOK2Fj21DrEOIvakBXM9LzNiOYLCivwuZ/exec';
 
 var PB_LOCKED = '아직 접수되지 않습니다. 받는 곳이 정해지면 연결됩니다.';
 var PB_INTAKE = {
@@ -745,10 +1673,18 @@ function setupIntake(formId, msgId, conf) {
          구글 Apps Script 웹앱은 OPTIONS 에 답하지 않습니다 — 그러면 CORS 에서 막혀
          '연결 실패'만 뜹니다. text/plain 은 사전 요청이 붙지 않는 갈래라 그냥 갑니다.
          받는 쪽에서 JSON.parse(e.postData.contents) 로 읽습니다. */
-      fetch(conf.url, {
-        method: 'POST',
-        headers: { 'content-type': 'text/plain;charset=utf-8' },
-        body: JSON.stringify(data)
+      /* 첨부가 있으면 먼저 읽어서 data.files 에 담습니다(readFiles).
+         파일이 없으면 곧바로 빈 배열이 와서 예전과 똑같이 흘러갑니다. */
+      readFiles(form).then(function (files) {
+        if (files.length) {
+          data.files = files;
+          msg.textContent = '자료를 올리는 중…';
+        }
+        return fetch(conf.url, {
+          method: 'POST',
+          headers: { 'content-type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(data)
+        });
       }).then(function (r) {
         if (!r.ok) throw new Error(r.status);
         msg.textContent = conf.done || '보냈습니다.';
@@ -781,12 +1717,49 @@ function readForm(form) {
   var out = {};
   form.querySelectorAll('input, textarea, select').forEach(function (el) {
     if (!el.id) return;
+    /* 파일 칸은 여기서 빼고 readFiles 가 따로 다룹니다.
+       ⚠️ 그냥 두면 value 가 'C:\fakepath\아무개.hwp' 라는 가짜 경로로 들어가서,
+          시트에 파일도 없이 경로 흉내만 한 줄 쌓입니다. */
+    if (el.type === 'file') return;
     out[el.id] = (el.type === 'checkbox' || el.type === 'radio') ? el.checked : el.value;
   });
   return out;
 }
 
-/* 참여예산 상담소 — 하는 일 둘.
+/* 첨부 파일을 base64 로 읽습니다(2026-09-04). 파일 칸이 없거나 고른 것이 없으면
+   빈 배열을 곧바로 돌려주므로, 질문 폼은 이 길로 와도 달라지는 것이 없습니다.
+
+   ⚠️ 크기·개수·확장자는 pb.html 이 이미 한 번 봤습니다. 그래도 **받는 쪽
+      Code.gs 가 다시 봅니다** — 접수 주소가 페이지에 박혀 있어 화면을 건너뛰고
+      보낼 수 있기 때문입니다. 여기서 또 세지는 않습니다(두 곳이면 충분하고,
+      세 곳이 되면 값이 어긋났을 때 어디가 맞는지 알 수 없게 됩니다).
+   ⚠️ base64 는 원본보다 약 1/3 큽니다. 화면의 10MB 한도는 원본 기준이라
+      실제로 오가는 본문은 13MB 남짓입니다. */
+function readFiles(form) {
+  var els = form.querySelectorAll('input[type=file]');
+  var jobs = [];
+  els.forEach(function (el) {
+    var list = el.files || [];
+    for (var i = 0; i < list.length; i++) jobs.push(readOne(list[i]));
+  });
+  return Promise.all(jobs);
+}
+
+function readOne(file) {
+  return new Promise(function (done, fail) {
+    var fr = new FileReader();
+    fr.onload = function () {
+      /* readAsDataURL 은 'data:…;base64,XXXX' 를 줍니다. 쉼표 뒤만 씁니다. */
+      var s = String(fr.result);
+      done({ name: file.name, type: file.type, size: file.size,
+             b64: s.slice(s.indexOf(',') + 1) });
+    };
+    fr.onerror = function () { fail(new Error('읽지 못함: ' + file.name)); };
+    fr.readAsDataURL(file);
+  });
+}
+
+/* 시민참여 상담소 — 하는 일 둘.
      1. 히어로에서 고른 주제를 기억
      2. 말 뜻 카드 뒤집기
 
@@ -804,10 +1777,45 @@ function readForm(form) {
 
   var items = Array.prototype.slice.call(root.querySelectorAll('#pb-qa .item'));
 
-  /* ── 문답이 몇 개인지 ──
-     예전에는 거르기가 이 숫자를 고쳐 썼습니다. 거르기가 없어져서 한 번만 적습니다. */
+  /* ── 문답이 몇 개인지 · 주제로 거르기 (거르기는 2026-09-04 에 되살렸습니다) ──
+     ⚠️ 여기 쓰는 주제 값은 히어로 폼의 data-topic 과 같아야 합니다
+        (budget · jachi · policy). 한쪽만 바꾸면 늘 '없습니다'만 나옵니다. */
   var count = document.getElementById('pb-count');
-  if (count) count.textContent = '문답 ' + items.length + '개';
+  var qempty = document.getElementById('pb-qempty');
+  var qfilter = root.querySelector('.qfilter');
+
+  function drawCount(n) {
+    if (count) count.textContent = '문답 ' + n + '개';
+  }
+
+  function filterQa(topic) {
+    var on = 0;
+    items.forEach(function (it) {
+      var show = topic === 'all' || it.dataset.topic === topic;
+      it.hidden = !show;
+      if (!show) { it.open = false; return; }
+      on++;
+      /* 걸러서 다시 나타난 칸이 투명한 채 남지 않게 합니다 — 스크롤 등장이
+         한 번도 안 걸린 칸이 있을 수 있습니다. */
+      it.classList.add('in');
+    });
+    drawCount(on);
+    if (qempty) qempty.hidden = on > 0;
+  }
+
+  drawCount(items.length);
+
+  if (qfilter) {
+    var fbtns = Array.prototype.slice.call(qfilter.querySelectorAll('button'));
+    fbtns.forEach(function (b) {
+      b.addEventListener('click', function () {
+        fbtns.forEach(function (x) {
+          x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+        });
+        filterQa(b.dataset.filter);
+      });
+    });
+  }
 
   /* ── 2. 말 뜻 카드 뒤집기 ── */
   root.querySelectorAll('.word').forEach(function (b) {
@@ -829,6 +1837,270 @@ function readForm(form) {
     });
   });
 
+  /* ══════════════════════════════════════════════════════════
+     움직임 (2026-09-03 저녁에 더했습니다)
+
+     여기서부터는 **없어도 페이지가 다 되는 것**만 합니다.
+       · 전문위원 카루셀의 화살표 · 점 · 기울임
+         (넘기는 것 자체는 CSS 가로 스크롤이라 이 코드 없이도 됩니다)
+       · 스크롤하면 떠오르기
+     맨 먼저 붙이는 'js' 표시가 그 약속입니다 — 숨기는 CSS 는 전부
+     #pb.js 안에만 있어서, 이 코드가 안 돌면 아무것도 숨지 않습니다.
+     ══════════════════════════════════════════════════════════ */
+  root.classList.add('js');
+
+  var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ── 스크롤하면 하나씩 떠오릅니다 ──
+     칸을 HTML 에서 일일이 표시하지 않고 여기서 고릅니다. 화면에 칸이 늘어도
+     저절로 따라옵니다. IntersectionObserver 가 없는 옛 브라우저에서는
+     'in' 을 바로 붙여 그냥 다 보이게 둡니다. */
+  var reveal = root.querySelectorAll(
+    '.sec > .sh, .qtools, .qa .item, .words, .word,' +
+    ' .cintro, .people, .phint, .rows .row, .rows-fine, .form');
+  if (!('IntersectionObserver' in window) || calm) {
+    reveal.forEach(function (el) { el.classList.add('rv', 'in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        en.target.classList.add('in');
+        io.unobserve(en.target);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: .12 });
+    /* 같은 줄에 여러 개가 있으면 순서대로 조금씩 늦춥니다.
+       0.06초씩, 최대 다섯 칸까지만 — 더 늘리면 마지막 칸이 눈에 띄게 늦습니다. */
+    var seen = {};
+    reveal.forEach(function (el) {
+      var key = el.className.split(' ')[0];
+      seen[key] = (seen[key] || 0) + 1;
+      el.style.setProperty('--d', (Math.min(seen[key] - 1, 5) * 0.06) + 's');
+      el.classList.add('rv');
+      io.observe(el);
+    });
+  }
+
+  /* ── 전문위원 카루셀 ── */
+  (function () {
+    var pv = document.getElementById('pb-pv');
+    if (!pv) return;
+    var slides = Array.prototype.slice.call(pv.querySelectorAll('.person'));
+    if (!slides.length) return;
+
+    var countEl = document.getElementById('pb-pcount');
+    var prev = root.querySelector('.pnav.prev');
+    var next = root.querySelector('.pnav.next');
+    var cur = -1;
+
+    /* 넓은 화면에서는 넷이 한 번에 보입니다(카루셀이 아닙니다).
+       ⚠️ 이 값은 CSS 의 @media(min-width:900px) 와 같아야 합니다.
+          한쪽만 바꾸면 화살표는 사라졌는데 5초마다 스크롤이 튀는 상태가 됩니다. */
+    var wideMq = window.matchMedia('(min-width: 900px)');
+
+    /* 이름 버튼은 2026-09-04 에 걷었습니다(사용자: "그거 필요없는 거 같아").
+       넘기는 것은 화살표와 3초 자동 넘김뿐입니다. dots 는 빈 배열로 두어
+       아래 paint() 를 고치지 않고 그대로 씁니다. */
+    var dots = [];
+
+    function paint(i) {
+      if (i === cur) return;
+      cur = i;
+      slides.forEach(function (s, n) {
+        s.classList.toggle('is-on', n === i);
+        s.setAttribute('aria-hidden', n === i ? 'false' : 'true');
+      });
+      dots.forEach(function (d, n) { d.setAttribute('aria-selected', n === i ? 'true' : 'false'); });
+      if (countEl) countEl.innerHTML = '<b>' + (i + 1) + '</b> / ' + slides.length;
+      /* 끝에서 끝으로 이어집니다 — 화살표를 끄지 않습니다. */
+      if (prev) prev.disabled = false;
+      if (next) next.disabled = false;
+    }
+
+    /* 고리처럼 돕니다. 마지막에서 › 를 누르면 처음으로,
+       처음에서 ‹ 를 누르면 마지막으로 갑니다
+       (2026-09-04 사용자: "오지은에서 옆으로 가면 김민철 나오게"). */
+    function go(i) {
+      var n = slides.length;
+      paint(((i % n) + n) % n);
+    }
+
+    /* 지금 어느 칸을 보고 있나 — 창 한가운데에 제일 가까운 칸입니다.
+       손가락으로 밀어 넘겼을 때도 점과 숫자가 따라오게 하는 부분입니다. */
+    var ticking = false;
+    function follow() {
+      ticking = false;
+      var mid = pv.scrollLeft + pv.clientWidth / 2;
+      var best = 0, gap = Infinity;
+      slides.forEach(function (s, i) {
+        var c = s.offsetLeft - slides[0].offsetLeft + s.offsetWidth / 2;
+        var d = Math.abs(c - mid);
+        if (d < gap) { gap = d; best = i; }
+      });
+      paint(best);
+    }
+    pv.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(follow);
+    }, { passive: true });
+
+    if (prev) prev.addEventListener('click', function () { go(cur - 1); });
+    if (next) next.addEventListener('click', function () { go(cur + 1); });
+
+    /* 방향키. 카루셀에 초점이 있을 때만 듣습니다 — 페이지 전체에 걸면
+       글을 읽으며 방향키를 누른 사람의 화면이 제멋대로 넘어갑니다. */
+    pv.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { e.preventDefault(); go(cur + 1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); go(cur - 1); }
+    });
+
+    /* 마우스를 따라 살짝 눕습니다. 손가락으로 만지는 화면과
+       움직임을 끈 사람에게는 걸지 않습니다. */
+    var fine = window.matchMedia && window.matchMedia('(pointer: fine)').matches;
+    if (fine && !calm) {
+      pv.addEventListener('mousemove', function (e) {
+        // 넷이 나란한 화면에서는 한 장만 눕는 것이 이상합니다(카드마다 hover 가 있습니다).
+        if (wideMq.matches) return;
+        var s = slides[cur];
+        if (!s) return;
+        var r = s.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width - .5;
+        var y = (e.clientY - r.top) / r.height - .5;
+        if (x < -.5 || x > .5 || y < -.5 || y > .5) return;
+        s.classList.add('tilting');
+        s.style.setProperty('--ry', (x * 6).toFixed(2) + 'deg');
+        s.style.setProperty('--rx', (-y * 5).toFixed(2) + 'deg');
+      });
+      pv.addEventListener('mouseleave', function () {
+        slides.forEach(function (s) {
+          s.classList.remove('tilting');
+          s.style.removeProperty('--rx');
+          s.style.removeProperty('--ry');
+        });
+      });
+    }
+
+    /* ── 3초마다 저절로 넘어갑니다 (2026-09-03 사용자 결정) ──
+       읽는 도중에 화면이 사라지면 안 되므로 다음 경우에는 멈춥니다.
+         · 마우스를 올렸을 때 · 그 안에 초점이 있을 때 · 손으로 넘긴 직후
+         · 다른 탭에 가 있을 때 · 카루셀이 화면 밖으로 나갔을 때
+         · 움직임을 끈 사람(prefers-reduced-motion)에게는 아예 돌지 않습니다
+       마지막에서 첫 번째로 돌아옵니다 — 화살표는 끝에서 멈추게 두었지만,
+       저절로 도는 쪽은 넷을 계속 보여 주는 것이 목적입니다. */
+    var timer = null, held = 0, onScreen = true;
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+    function start() {
+      stop();
+      if (calm || held || !onScreen || document.hidden) return;
+      timer = setInterval(function () { go(cur >= slides.length - 1 ? 0 : cur + 1); }, 3000);
+    }
+    /* 사람이 건드리면 잠시 손을 뗍니다(hold). 뗀 뒤 8초가 지나면 다시 돕니다. */
+    var wake;
+    function hold() {
+      held++;
+      clearTimeout(wake);
+      stop();
+      wake = setTimeout(function () { held = 0; start(); }, 8000);
+    }
+    ['mousedown', 'touchstart', 'keydown', 'wheel'].forEach(function (ev) {
+      pv.addEventListener(ev, hold, { passive: true });
+    });
+    if (prev) prev.addEventListener('click', hold);
+    if (next) next.addEventListener('click', hold);
+    dots.forEach(function (d) { d.addEventListener('click', hold); });
+
+    var box = root.querySelector('.people');
+    if (box) {
+      box.addEventListener('focusin', stop);
+      box.addEventListener('focusout', function () { if (!held) start(); });
+    }
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) stop(); else if (!held) start();
+    });
+    /* 화면 밖에서는 돌지 않습니다 — 안 보는 동안 넘어가 있으면
+       다시 내려왔을 때 엉뚱한 사람이 서 있습니다. */
+    if ('IntersectionObserver' in window && box) {
+      new IntersectionObserver(function (es) {
+        onScreen = es[0].isIntersecting;
+        if (onScreen) { if (!held) start(); } else stop();
+      }, { threshold: .35 }).observe(box);
+    }
+
+    /* ── 전문위원 창 (2026-09-03) ──
+       사용자: "그 사람을 클릭하면 그 창이 슝하고 나와서 전체 화면으로 볼 수 있게."
+       ⚠️ 좁은 화면(카루셀)에서는 열지 않습니다 — 거기서는 카드 안에 이력이
+          이미 다 펼쳐져 있어, 창을 띄우면 같은 글을 두 번 보게 됩니다. */
+    var modal = document.getElementById('pb-pmodal');
+    var mBody = document.getElementById('pb-pmodal-in');
+    var mAt = -1, mLast = null;
+
+    function fillModal(i) {
+      if (!mBody || !slides[i]) return;
+      mAt = i;
+      // 카드 속을 그대로 옮겨 담습니다 — 글이 마크업 한 곳에만 있게.
+      mBody.innerHTML = '<article class="person is-on">' + slides[i].innerHTML + '</article>';
+      mBody.scrollTop = 0;
+      var mp = modal.querySelector('.pmodal-prev');
+      var mn = modal.querySelector('.pmodal-next');
+      if (mp) mp.disabled = i <= 0;
+      if (mn) mn.disabled = i >= slides.length - 1;
+    }
+
+    function openPerson(i) {
+      // showModal 이 없는 옛 브라우저에서는 그냥 열리지 않습니다.
+      // 그 사람에게도 카드의 이름·분야는 그대로 보입니다.
+      if (!modal || !modal.showModal || !slides[i]) return;
+      mLast = document.activeElement;
+      fillModal(i);
+      modal.showModal();
+      document.body.style.overflow = 'hidden';
+      var x = modal.querySelector('.pmodal-x');
+      if (x) x.focus();
+    }
+    function closePerson() { if (modal && modal.open) modal.close(); }
+
+    if (modal) {
+      modal.addEventListener('close', function () {
+        document.body.style.overflow = '';
+        if (mLast && mLast.focus) mLast.focus();
+      });
+      // 어두운 바탕을 누르면 닫습니다(그 클릭은 dialog 자신에게 옵니다).
+      modal.addEventListener('click', function (e) {
+        if (e.target === modal) { closePerson(); return; }
+        var b = e.target.closest && e.target.closest('.pmodal-x, .pmodal-prev, .pmodal-next');
+        if (!b) return;
+        if (b.className.indexOf('pmodal-x') >= 0) closePerson();
+        else fillModal(b.className.indexOf('pmodal-prev') >= 0 ? mAt - 1 : mAt + 1);
+      });
+      // 창 안에서도 방향키로 사람을 넘깁니다.
+      modal.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowRight' && mAt < slides.length - 1) { e.preventDefault(); fillModal(mAt + 1); }
+        if (e.key === 'ArrowLeft'  && mAt > 0)                 { e.preventDefault(); fillModal(mAt - 1); }
+      });
+    }
+
+    /* 이 시안은 카드가 아니라 아래 이름 버튼으로 사람을 바꿉니다. */
+    function syncWide() {
+      slides.forEach(function (s) {
+        s.removeAttribute('tabindex');
+        s.removeAttribute('role');
+      });
+      stop(); closePerson();
+    }
+    if (wideMq.addEventListener) wideMq.addEventListener('change', syncWide);
+    else if (wideMq.addListener) wideMq.addListener(syncWide);
+
+    paint(0);
+    syncWide();
+    start();
+    /* 창 크기가 바뀌면 스냅 위치가 어긋납니다. 보던 사람에게 다시 맞춥니다. */
+    var rt;
+    window.addEventListener('resize', function () {
+      clearTimeout(rt);
+      rt = setTimeout(function () { go(cur); }, 160);
+    });
+  })();
+
   /* ── 폼 ──
      이 파일(캠페이너스 미리보기)에서는 아무 데도 보내지 않습니다.
      실제 접수는 굽는 쪽에 있습니다 — participatory-budget/build.py 가 아래 두 줄을
@@ -837,6 +2109,89 @@ function readForm(form) {
      보내는 것: 주제(pb-topic) · 질문 · 이름 · 휴대전화 · 이메일 ·
      동의 두 개(pb-agree 필수 / pb-news 소식 받기 선택) · 허니팟(pb-hp).
      ⚠️ pb-news 가 꺼진 사람의 연락처를 소식지에 쓰면 안 됩니다 — 목적이 다릅니다. */
+  /* ── 연락처 택일 (2026-09-04) ──
+     휴대폰(pb-o6)과 행정번호(pb-o7) 중 **하나는** 있어야 합니다. 둘 다 required 를
+     떼고 여기서 봅니다 — required 를 둘에 다 붙이면 둘 다 적어야 하고, 한쪽에만
+     붙이면 그쪽으로 강요하는 것이라 어느 쪽도 '택일'이 아닙니다.
+
+     setCustomValidity 를 쓰면 브라우저가 원래 하던 대로 막아 주고 말풍선까지
+     띄웁니다. 폼 검사는 submit 이 일어나기 **전에** 끝나므로, 보내는 코드가
+     fakeSubmit 이든 setupIntake(굽는 쪽)든 손댈 것이 없습니다.
+     ⚠️ 이 자리를 옮기지 마세요 — 아래 fakeSubmit 정의와 그 호출 두 줄은
+        build.py 가 통째로 바꿔치는 구간입니다. 그 안에 넣으면 구울 때 지워집니다. */
+  (function () {
+    var a = document.getElementById('pb-o6');
+    var b = document.getElementById('pb-o7');
+    if (!a || !b) return;
+    var WANT = '휴대폰이나 행정번호 가운데 하나는 적어 주세요.';
+    function sync() {
+      var empty = !a.value.trim() && !b.value.trim();
+      /* 말풍선은 한 곳에만 답니다. 둘 다 달면 브라우저가 첫 칸만 보여 주고
+         나머지 하나는 채운 뒤에도 막힌 것처럼 보입니다. */
+      a.setCustomValidity(empty ? WANT : '');
+      b.setCustomValidity('');
+    }
+    a.addEventListener('input', sync);
+    b.addEventListener('input', sync);
+    /* 보낸 뒤 form.reset() 이 칸을 비웁니다. 그때 다시 재지 않으면 '괜찮다'고
+       해 둔 판정이 남아, 빈 연락처로 한 번 더 보낼 수 있습니다.
+       reset 이 실제로 칸을 비우는 것은 이 이벤트가 끝난 뒤라 한 박자 미룹니다. */
+    if (a.form) a.form.addEventListener('reset', function () { setTimeout(sync, 0); });
+    sync();
+  })();
+
+  /* ── 참고 자료 첨부 검사 (2026-09-04) ──
+     개수 · 크기 · 확장자를 여기서 한 번 봅니다. 연락처 택일과 같은 수법으로
+     setCustomValidity 를 쓰므로, 걸리면 브라우저가 알아서 막고 말풍선을 띄웁니다.
+
+     ⚠️ 이것은 **친절**이지 방어가 아닙니다. 접수 주소가 페이지에 박혀 있어
+        화면을 거치지 않고 보낼 수 있습니다. 진짜로 막는 것은 받는 쪽
+        intake/Code.gs 의 같은 이름 값들입니다 — 한쪽만 고치면 어긋납니다.
+     ⚠️ 이 자리를 옮기지 마세요 — 아래 fakeSubmit 정의와 그 호출 두 줄은
+        build.py 가 통째로 바꿔치는 구간입니다. */
+  window.PB_FILES = {
+    MAX_N: 3,
+    MAX_ONE: 8 * 1024 * 1024,
+    MAX_ALL: 10 * 1024 * 1024,
+    OK_EXT: ['hwp', 'hwpx', 'pdf', 'doc', 'docx', 'xls', 'xlsx',
+             'ppt', 'pptx', 'jpg', 'jpeg', 'png', 'gif']
+  };
+  (function () {
+    var F = window.PB_FILES;
+    var el = document.getElementById('pb-ofile');
+    if (!el) return;
+    function mb(n) { return (n / 1024 / 1024).toFixed(1).replace(/\.0$/, '') + 'MB'; }
+    function why(files) {
+      if (files.length > F.MAX_N) return F.MAX_N + '개까지 올릴 수 있습니다.';
+      var all = 0;
+      for (var i = 0; i < files.length; i++) {
+        var f = files[i];
+        var dot = f.name.lastIndexOf('.');
+        var ext = dot < 0 ? '' : f.name.slice(dot + 1).toLowerCase();
+        if (F.OK_EXT.indexOf(ext) < 0) {
+          return '‘' + f.name + '’ 은 올릴 수 없는 형식입니다. ' +
+                 '한글·워드·엑셀·PPT·PDF·사진만 됩니다.';
+        }
+        if (f.size > F.MAX_ONE) {
+          return '‘' + f.name + '’ 이 너무 큽니다(' + mb(f.size) + '). ' +
+                 '한 개 ' + mb(F.MAX_ONE) + ' 까지입니다.';
+        }
+        all += f.size;
+      }
+      if (all > F.MAX_ALL) {
+        return '모두 합쳐 ' + mb(all) + ' 입니다. ' + mb(F.MAX_ALL) + ' 까지입니다.';
+      }
+      return '';
+    }
+    el.addEventListener('change', function () {
+      el.setCustomValidity(why(el.files || []));
+    });
+    /* 보낸 뒤 reset 으로 고른 파일이 사라지면 판정도 함께 풀어야 합니다. */
+    if (el.form) el.form.addEventListener('reset', function () {
+      setTimeout(function () { el.setCustomValidity(''); }, 0);
+    });
+  })();
+
   setupIntake('pb-ask', 'pb-msg', PB_INTAKE.ask);
   setupIntake('pb-order', 'pb-omsg', PB_INTAKE.order);
 })();
@@ -859,6 +2214,8 @@ function readForm(form) {
     word-break:keep-all;-webkit-font-smoothing:antialiased
   }
   #pb-foot a{color:inherit;text-decoration:none}
+  /* 키보드로 옮겨 다닐 때 지금 어디인지 보이게 합니다. 머리띠·본문과 같은 규칙입니다. */
+  #pb-foot :focus-visible{outline:2.5px solid var(--brand);outline-offset:3px}
   #pb-foot h2,#pb-foot h3,#pb-foot p{margin:0}
   #pb-foot .wrap{width:min(1120px,calc(100% - 48px));margin:0 auto}
 
@@ -874,7 +2231,8 @@ function readForm(form) {
     font-family:GmarketSans,sans-serif;font-weight:700;color:#fff;
     font-size:clamp(20px,2.2vw,31px);line-height:1.35;letter-spacing:-.02em
   }
-  #pb-foot .give p{margin-top:10px;font-size:14.5px;color:rgba(255,255,255,.9)}
+  /* 하늘색 위의 작은 글씨입니다. 흐리게 하면 읽기가 더 어려워져 흰색 그대로 씁니다. */
+  #pb-foot .give p{margin-top:10px;font-size:14.5px;color:#fff}
   #pb-foot .give a{
     flex:none;background:#fff;color:var(--ink);border-radius:999px;
     padding:15px 30px;font-weight:700;font-size:16px;transition:transform .15s
@@ -963,7 +2321,7 @@ function readForm(form) {
       <h2>당신이 낸 세금, 누가 지켜보고 있을까요?</h2>
       <p>시민행동은 정부와 기업의 돈을 감시합니다. 그 일은 시민의 후원으로만 굴러갑니다.</p>
     </div>
-    <a href="https://mrmweb.hsit.co.kr/v2/Member/MemberJoin.aspx?action=join&amp;server=GdGrmt6XtgAAdxPdh65AQQ==" target="_blank" rel="noopener">후원으로 함께하기 →</a>
+    <a href="https://secure.donus.org/withaction0909/pay/step1" target="_blank" rel="noopener">후원으로 함께하기 →</a>
   </div></div></section>
 
   <!-- ───────── 푸터 ───────── -->
@@ -993,14 +2351,16 @@ function readForm(form) {
         </div>
       </div>
 
-      <!-- ⚠️ 좋은기업센터는 화면에 적힌 주소(csr.action.or.kr)와 실제 연결되는 주소
-           (csrcenter.cafe24.com)가 다릅니다. 현재 홈에 걸린 링크를 그대로 가져온 것이라
-           어느 쪽이 맞는지 확인이 필요합니다. -->
+      <!-- 좋은기업센터 — 2026-09-03 사용자 결정으로 단체 도메인(csr.action.or.kr)으로
+           바꿨습니다. 예전에는 지금 홈에 걸린 그대로 csrcenter.cafe24.com 이었습니다.
+           ⚠️ https 는 안 됩니다(TLS 에서 끊깁니다). http 로 두세요 —
+              옆의 좋은예산센터·정보인권센터도 같은 이유로 http 입니다.
+              시민행동 웹 담당이 인증서를 달면 그때 셋을 함께 https 로 올리세요. -->
       <div class="ft-col">
         <h3>관련 페이지</h3>
         <div class="ft-btns">
           <a href="http://www.goodbudget.kr" target="_blank" rel="noopener"><img class="ft-logo" src="https://cdn.imweb.me/thumbnail/20230216/c6bdf8489c62b.jpeg" alt="좋은예산센터" loading="lazy" decoding="async"> <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 13.5V19a1.5 1.5 0 0 1-1.5 1.5H6A1.5 1.5 0 0 1 4.5 19V7A1.5 1.5 0 0 1 6 5.5h5.5"/><path d="M15 3.5h5.5V9"/><path d="M11.2 12.8 20.2 3.8"/></svg></span></a>
-          <a href="http://csrcenter.cafe24.com" target="_blank" rel="noopener"><img class="ft-logo" src="https://cdn.imweb.me/thumbnail/20230216/3a2115a51c49e.jpg" alt="좋은기업센터" loading="lazy" decoding="async"> <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 13.5V19a1.5 1.5 0 0 1-1.5 1.5H6A1.5 1.5 0 0 1 4.5 19V7A1.5 1.5 0 0 1 6 5.5h5.5"/><path d="M15 3.5h5.5V9"/><path d="M11.2 12.8 20.2 3.8"/></svg></span></a>
+          <a href="http://csr.action.or.kr" target="_blank" rel="noopener"><img class="ft-logo" src="https://cdn.imweb.me/thumbnail/20230216/3a2115a51c49e.jpg" alt="좋은기업센터" loading="lazy" decoding="async"> <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 13.5V19a1.5 1.5 0 0 1-1.5 1.5H6A1.5 1.5 0 0 1 4.5 19V7A1.5 1.5 0 0 1 6 5.5h5.5"/><path d="M15 3.5h5.5V9"/><path d="M11.2 12.8 20.2 3.8"/></svg></span></a>
           <a href="http://www.privacy.or.kr" target="_blank" rel="noopener"><img class="ft-logo" src="https://cdn.imweb.me/thumbnail/20230216/d3611c220acbd.png" alt="정보인권센터" loading="lazy" decoding="async"> <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 13.5V19a1.5 1.5 0 0 1-1.5 1.5H6A1.5 1.5 0 0 1 4.5 19V7A1.5 1.5 0 0 1 6 5.5h5.5"/><path d="M15 3.5h5.5V9"/><path d="M11.2 12.8 20.2 3.8"/></svg></span></a>
           <a href="https://donate.action.or.kr/" target="_blank" rel="noopener">후원 안내 <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 13.5V19a1.5 1.5 0 0 1-1.5 1.5H6A1.5 1.5 0 0 1 4.5 19V7A1.5 1.5 0 0 1 6 5.5h5.5"/><path d="M15 3.5h5.5V9"/><path d="M11.2 12.8 20.2 3.8"/></svg></span></a>
         </div>
