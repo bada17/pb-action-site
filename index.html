@@ -29,6 +29,17 @@
      한 번 넘겨지므로 두 곳 다 미리 손잡아 둡니다. -->
 <link rel="preconnect" href="https://script.google.com" crossorigin>
 <link rel="preconnect" href="https://script.googleusercontent.com" crossorigin>
+<!-- Google Analytics 4 — 누리집 분석 속성의 「시민참여 상담소」 스트림.
+     구운 index.html 에만 들어갑니다. pb.html 은 캠페이너스 안에서도 쓰이므로
+     거기에 넣으면 홈페이지 쪽에서 두 번 세어집니다. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HGN7W0BGMX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-HGN7W0BGMX');
+</script>
+
 <style>
 /* 이 파일이 얹는 것은 문서 껍데기뿐입니다. 화면 규칙은 전부 #pb 안에 있습니다.
    (캠페이너스 안에서는 홈페이지가 대 주던 것들입니다.) */
